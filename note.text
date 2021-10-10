@@ -1,0 +1,15 @@
+development
+ORDER TO UNDO SEED, AND UNDO DATABASE
+npx dotenv sequelize db:seed:undo:all
+npx dotenv sequelize db:migrate:undo:all
+npx dotenv sequelize db:migrate
+npx dotenv sequelize db:seed:all
+
+
+
+Heroku
+
+git push heroku login-branch:master
+
+heroku run npm run sequelize db:migrate
+heroku run npm run sequelize db:seed:all

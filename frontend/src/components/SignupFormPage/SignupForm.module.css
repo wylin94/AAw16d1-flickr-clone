@@ -1,0 +1,156 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-image: url('../../images/Homepage.jpeg');
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 255, 255, 1);
+  width: 350px;
+  /* height: 435px; */
+  border-radius: 5px;
+}
+
+.logoImage {
+  width: 30px;
+  margin: 19px 0px;
+}
+
+.loginTitle {
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+
+.loginError {
+  color: #E2292B;
+  font-size: 14px;
+  list-style-type: none;
+  margin: 20px 40px;
+}
+
+.loginForm {
+  width: 100%;
+}
+
+.loginForm label {
+  color: grey;
+  position: absolute;
+  margin-left: 40px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.loginForm input {
+  display: block;
+  width: 300px;
+  height: 55px;
+  margin: 10px auto;
+  text-indent: 11px;
+  font-size: 15px;
+  padding-top: 20px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.loginForm button, .demoForm button {
+  display: block;
+  width: 300px;
+  margin: auto;
+  height: 40px;
+  background-color: #128fdc;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
+
+.loginForm button:hover, .demoForm button:hover {
+  background-color: #1598e9;
+}
+
+.loginForm button:active, .demoForm button:active {
+  background-color: #107fc4;
+}
+
+.demoForm button {
+  margin: 10px 0px;
+}
+
+.agree {
+  font-size: 11px;
+  color: rgb(155, 155, 155);
+  text-align: center;
+  margin: 8px 0;
+}
+
+.notMember {
+  margin-top: 15px;
+  font-size: 14px;
+  color: rgb(85, 85, 85);
+  border-top: 1px solid rgb(222, 222, 222);
+  padding: 20px 43px;
+}
+
+.notMemberSignup {
+  font-size: 14px;
+  text-decoration: none;
+  color: #006DAC;
+}
+
+.homepageFooter {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0px;
+  color: grey;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(0, 0, 0, 0.7);
+  width: 100%;
+  height: 50px;
+  list-style-type: none;
+}
+
+.footerLeft {
+  margin: 0px 25px;
+}
+
+.footerRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 25px;
+  width: 250px;
+}
+
+.linkedinIcon {
+  font-size: 25px;
+  color: rgb(0, 99, 220);
+}
+
+.linkedinIcon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.githubIcon {
+  color: rgb(255, 0, 132);
+  font-size: 25px;
+}
+
+.githubIcon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
