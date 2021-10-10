@@ -1,4 +1,5 @@
-.navigationContainer {
+/* Landing Page Navigation CSS */
+.landingNavContainer {
   position: sticky;
   top: 0;
   display: flex;
@@ -9,41 +10,34 @@
   z-index: 1;
 }
 
-.logoImage {
+.landingLogoImage {
   width: 30px;
   margin-left: 20px;
   margin-right: 10px;
 }
 
-.navigationul {
+.landingNavul {
   display: inline-block;
   padding: 0;
   margin-right: 20px;
   width: 100%;
 }
 
-.navigationli {
+.landingNavli {
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style-type: none;
 }
 
-.logoText {
+.landingLogoText {
   text-decoration: none;
   color: white;
   font-size: 29px;
   font-weight: bold;
 }
 
-.logoTextR {
-  text-decoration: none;
-  color: rgb(255, 0, 132);
-  font-size: 29px;
-  font-weight: bold;
-}
-
-.loginSignup {
+.landingLoginSignup {
   display: flex;
   align-items: center;
   width: 175px;
@@ -51,16 +45,16 @@
   color: white;
 }
 
-.login {
+.landingLogin {
   text-decoration: none;
 }
 
-.login:hover {
+.landingLogin:hover {
   color: rgb(167, 167, 167);
   cursor: pointer;
 }
 
-.signup {
+.landingSignup {
   color: black;
   text-decoration: none;
   border: 2px solid white;
@@ -69,11 +63,79 @@
   background-color: white;
 }
 
-.signup:hover {
+.landingSignup:hover {
   color: grey;
   cursor: pointer;
 }
 
-.signup:active {
+.landingSignup:active {
   border: 2px solid grey;
+}
+
+
+
+/* Homepage Navigation CSS */
+.homepageNavContainer {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 0, 0, 0.9);
+  height: 50px;
+  width: 100%;
+  z-index: 1;
+}
+
+.homepageNavContainer2 {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.homepageLogoImage {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.homepageNavul {
+  display: inline-block;
+  padding: 0;
+  /* margin-right: 20px; */
+  width: 100%;
+}
+
+.homepageNavli {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.homepageNavLeft {
+  display: flex;
+  /* background-color: red; */
+  align-items: center;
+  gap: 20px;
+  color: white;
+}
+
+.homepageLogoText {
+  text-decoration: none;
+  font-size: 29px;
+  font-weight: bold;
+}
+
+.homepageNavRight {
+  display: flex;
+  gap: 25px;
+  color: white;
+}
+
+.homepageLinkedinIcon, .homepageGithubIcon {
+  font-size: 28px;
+}
+
+.homepageLinkedinIcon:hover, .homepageGithubIcon:hover {
+  color: rgb(170, 170, 170);
 }

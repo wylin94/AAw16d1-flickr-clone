@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import HomePage from "./components/HomePage"; 
+import LandingPage from "./components/LandingPage";
+import HomePage from "./components/HomePage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
@@ -18,9 +19,9 @@ function App() {
 
   let home;
   if (sessionUser) {
-    home = (<h2>test</h2>);
-  } else {
     home = (<HomePage />);
+  } else {
+    home = (<LandingPage />);
   }
 
   return (

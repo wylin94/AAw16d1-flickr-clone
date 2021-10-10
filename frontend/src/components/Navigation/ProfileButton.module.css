@@ -1,0 +1,80 @@
+.profileButton {
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  color: white;
+  font-size: 28px;
+}
+
+.profileButton:hover {
+  color:rgb(170, 170, 170);
+}
+
+.profileDropdownContainer {
+  position: absolute;
+  display: block;
+  top: 60px;
+}
+
+.profileDropdown {
+  position: relative;
+  border: 1px solid rgb(176, 176, 176);
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  list-style-type: none;
+  width: 300px;
+  right: 270px;
+}
+
+.profileDropdown:before {
+  content: "";
+  position: absolute;
+  border: solid transparent;
+  border-bottom-color: white;
+  border-width: 11px;
+  margin-left: -10px;
+  top: -21px;
+  right: 5px;
+  z-index: 1;
+} 
+
+.profileDropdown:after {
+    content: "";
+    position: absolute;
+    right: 6px;
+    top: -21px;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    border-width: 10px;
+    border-bottom-color: rgb(176, 176, 176);
+    z-index: 0;
+}
+
+.profileDropdownName {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.profileDropdownEmail {
+  margin-left: 20px;
+  color: grey;
+  margin-bottom: 20px;
+}
+
+.profileDropdownLogout {
+  background-color: transparent;
+  border: none;
+  padding: 10px 0px;
+  border-top: 1px solid rgb(211, 211, 211);
+  width: 100%;
+  text-align: left;
+  text-indent: 20px;
+}
+
+.profileDropdownLogout:hover {
+  background-color: rgb(208, 208, 208);
+}

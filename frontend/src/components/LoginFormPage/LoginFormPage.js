@@ -66,15 +66,15 @@ function LoginFormPage() {
           Not a Veilr member? <a className={styles.notMemberSignup} href="/signup">Sign up here.</a>
         </div>
       </div>
-      <div className={styles.homepageFooter}>
+      <div className={styles.landingPageFooter}>
         <div className={styles.footerLeft}>© 2021 Veilr. No rights reserved.</div>
         <div className={styles.footerRight}>
           <span>About the Developer</span>
           <a href='https://www.linkedin.com/in/wylin94/' className={styles.linkedinIcon}>
-              <i class="fab fa-linkedin-in"></i>
+              <i className="fab fa-linkedin-in"></i>
           </a>
           <a href='https://github.com/wylin94' className={styles.githubIcon}>
-              <i class="fab fa-github"></i>
+              <i className="fab fa-github"></i>
           </a>
         </div>
       </div>
