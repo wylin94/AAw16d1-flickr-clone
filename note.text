@@ -1,4 +1,8 @@
 development
+
+npx sequelize model:generate --name User --attributes username:string,email:string,hashedPassword:string
+npx sequelize seed:generate --name demo-user
+
 ORDER TO UNDO SEED, AND UNDO DATABASE
 npx dotenv sequelize db:seed:undo:all
 npx dotenv sequelize db:migrate:undo:all

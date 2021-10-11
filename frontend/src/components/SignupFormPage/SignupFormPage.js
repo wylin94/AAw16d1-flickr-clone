@@ -30,13 +30,13 @@ function SignupFormPage() {
 
   const handleDemoSubmit = (e) => {
     e.preventDefault();
-    return dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password' }))
+    return dispatch(sessionActions.login({ credential: 'Jack Lin', password: 'password' }))
   }
 
   return (
     <div className={styles.loginPage}>
       <div className={styles.loginContainer}>
-        <img src={'/images/veilr-logo.png'} alt="Remembr Logo" className={styles.logoImage}></img>
+        <img src={'/images/veilr-logo.png'} alt="Veilr Logo" className={styles.logoImage}></img>
         <h6 className={styles.loginTitle}>Sign up for Veilr</h6>
         <form className={styles.loginForm} onSubmit={handleSubmit}>
           <ul>

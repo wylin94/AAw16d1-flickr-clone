@@ -8,6 +8,7 @@
 
 .profileButton:hover {
   color:rgb(170, 170, 170);
+  cursor: pointer;
 }
 
 .profileDropdownContainer {
