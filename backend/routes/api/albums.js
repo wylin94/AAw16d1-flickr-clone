@@ -23,13 +23,14 @@ router.get('/:id', asyncHandler(async (req, res) => {
 }));
 
 //Create new album
-router.post('/:id', asyncHandler(async (req, res) => {
+router.post('/myAlbum', asyncHandler(async (req, res) => {
   const { url, title, userId} = req.body;
   const post = await Album.create({
     coverImageUrl: url,
     title,
     userId
   })
+  // return res.json({post})
 }));
 
 

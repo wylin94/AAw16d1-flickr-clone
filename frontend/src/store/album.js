@@ -1,3 +1,4 @@
+import { csrfFetch } from './csrf';
 
 const LOAD = 'albums/LOAD'
 
@@ -24,8 +25,7 @@ export const getMyAlbum = (userId) => async dispatch => {
 
 export const createAlbum = (album) => async dispatch => {
   const { url, title, userId } = album;
-  console.log(url, title, userId)
-  const res = await fetch(`/api/albums/${userId}`, {
+  const res = await csrfFetch(`/api/albums/myAlbum`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({url, title, userId}),
