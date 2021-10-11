@@ -14,6 +14,14 @@ export const getAlbum = () => async dispatch => {
   }
 }
 
+export const getMyAlbum = (userId) => async dispatch => {
+  const res = await fetch(`/api/albums/${userId}`);
+  if (res.ok) {
+    const albums = await res.json();
+    dispatch(load(albums));
+  }
+}
+
 const albumReducer = (state = {}, action) => {
   switch (action.type) {
     case LOAD: {

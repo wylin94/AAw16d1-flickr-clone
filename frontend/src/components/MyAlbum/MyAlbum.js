@@ -1,21 +1,20 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import styles from './MyAlbum.module.css';
-import { getAlbum } from '../../store/album';
+import { getMyAlbum } from '../../store/album';
 
 function MyAlbum() {
   const dispatch = useDispatch();
   const albums = useSelector((state) => Object.values(state.album))
+  const userId = useSelector((state) => state.session.user.id)
 
-  console.log(albums)
   useEffect(() => {
-    dispatch(getAlbum());
-  }, [dispatch])
+    dispatch(getMyAlbum(userId));
+  }, [dispatch, userId])
 
   return (
     <div className={styles.homePageContainer}>
       <div className={styles.homePageAlbumContainer}>
-        <h6>Albums</h6>
         <div className={styles.albums}>
           {albums.map(album => {
             return (

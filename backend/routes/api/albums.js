@@ -11,4 +11,13 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.json(albums)
 }));
 
+router.get('/:id', asyncHandler(async (req, res) => {
+  const userId = parseInt(req.params.id, 10);
+  const albums = await Album.findAll({
+    where: { userId },
+    include: [User]
+  });
+  return res.json(albums)
+}));
+
 module.exports = router;

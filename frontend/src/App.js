@@ -37,7 +37,7 @@ function App() {
             {sessionUser ? (<MyAlbum />) : (<Redirect to="/login" />)}
           </Route>
           <Route>
-            <h2>Having too much fun? please come back home.</h2>
+            <h2>Having too much fun? Let's come back home.</h2>
           </Route>
         </Switch>
       )}

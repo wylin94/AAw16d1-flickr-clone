@@ -7,7 +7,6 @@ function HomePage() {
   const dispatch = useDispatch();
   const albums = useSelector((state) => Object.values(state.album))
 
-  console.log(albums)
   useEffect(() => {
     dispatch(getAlbum());
   }, [dispatch])
