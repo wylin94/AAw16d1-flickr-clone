@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import styles from './HomePage.module.css';
+import styles from './MyAlbum.module.css';
 import { getAlbum } from '../../store/album';
 
-function HomePage() {
+function MyAlbum() {
   const dispatch = useDispatch();
   const albums = useSelector((state) => Object.values(state.album))
 
@@ -32,4 +32,4 @@ function HomePage() {
   )
 }
 
-export default HomePage;
+export default MyAlbum;

@@ -6,7 +6,9 @@ import HomePage from "./components/HomePage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
+import MyAlbum from "./components/MyAlbum";
 import * as sessionActions from "./store/session";
+import { Redirect } from 'react-router-dom';
 
 function App() {
   const sessionUser = useSelector(state => state.session.user);
@@ -17,20 +19,13 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  let home;
-  if (sessionUser) {
-    home = (<HomePage />);
-  } else {
-    home = (<LandingPage />);
-  }
-
   return (
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
           <Route exact path="/">
-            {home}
+            {sessionUser ? (<HomePage />) : (<LandingPage />)}
           </Route>
           <Route path="/login">
             <LoginFormPage />
@@ -38,8 +33,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path="/myAlbums">
+            {sessionUser ? (<MyAlbum />) : (<Redirect to="/login" />)}
+          </Route>
           <Route>
-            <h2>Page Not Found</h2>
+            <h2>Having too much fun? please come back home.</h2>
           </Route>
         </Switch>
       )}

@@ -13,8 +13,6 @@ function LandingPage() {
     'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/Resized-A%26P-WeddingHighlights-20.jpg',
     'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/Resized-A%26P-WeddingHighlights-30.jpg',
     'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/Resized-C%26R-WeddingHighlights-3.jpeg',
-  
-  
   ]
 
   const [index, setIndex] = useState(0);
