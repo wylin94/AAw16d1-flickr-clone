@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
+
 import LandingPage from "./components/LandingPage";
 import HomePage from "./components/HomePage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import MyAlbum from "./components/MyAlbum";
+import CreateAlbum from "./components/CreateAlbumForm";
 import * as sessionActions from "./store/session";
 import { Redirect } from 'react-router-dom';
 
@@ -35,6 +37,9 @@ function App() {
           </Route>
           <Route path="/myAlbums">
             {sessionUser ? (<MyAlbum />) : (<Redirect to="/login" />)}
+          </Route>
+          <Route path="/createAlbumForm">
+            {sessionUser ? (<CreateAlbum />) : (<Redirect to="/login" />)}
           </Route>
           <Route>
             <h2>Having too much fun? Let's come back home.</h2>

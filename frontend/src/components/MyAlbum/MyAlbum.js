@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './MyAlbum.module.css';
 import { getMyAlbum } from '../../store/album';
 
@@ -15,6 +16,7 @@ function MyAlbum() {
   return (
     <div className={styles.homePageContainer}>
       <div className={styles.homePageAlbumContainer}>
+        <NavLink to='/createAlbumForm'>New Album</NavLink>
         <div className={styles.albums}>
           {albums.map(album => {
             return (

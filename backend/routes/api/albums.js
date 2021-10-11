@@ -4,6 +4,7 @@ const { Album, User } = require('../../db/models')
 
 const router = express.Router();
 
+//Get all album on homepage
 router.get('/', asyncHandler(async (req, res) => {
   const albums = await Album.findAll({
     include: [User]
@@ -11,6 +12,7 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.json(albums)
 }));
 
+//Get user album
 router.get('/:id', asyncHandler(async (req, res) => {
   const userId = parseInt(req.params.id, 10);
   const albums = await Album.findAll({
@@ -19,5 +21,17 @@ router.get('/:id', asyncHandler(async (req, res) => {
   });
   return res.json(albums)
 }));
+
+//Create new album
+router.post('/:id', asyncHandler(async (req, res) => {
+  const { url, title, userId} = req.body;
+  const post = await Album.create({
+    coverImageUrl: url,
+    title,
+    userId
+  })
+}));
+
+
 
 module.exports = router;

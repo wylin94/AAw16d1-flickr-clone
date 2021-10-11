@@ -22,6 +22,21 @@ export const getMyAlbum = (userId) => async dispatch => {
   }
 }
 
+export const createAlbum = (album) => async dispatch => {
+  const { url, title, userId } = album;
+  console.log(url, title, userId)
+  const res = await fetch(`/api/albums/${userId}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({url, title, userId}),
+  });
+
+  if (res.ok) {
+    const albums = await res.json();
+    dispatch(load(albums));
+  }
+}
+
 const albumReducer = (state = {}, action) => {
   switch (action.type) {
     case LOAD: {
