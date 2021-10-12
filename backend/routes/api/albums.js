@@ -14,15 +14,13 @@ router.get('/', asyncHandler(async (req, res) => {
 }));
 
 //Get user album
-router.get('/:id', asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const userId = parseInt(req.params.id, 10);
   const albums = await Album.findAll({
     where: { userId },
     include: [ User ],
     order: [["createdAt", "DESC"]],
   });
-  console.log(11111111111111111111111111)
-  console.log(albums)
   return res.json(albums)
 }));
 
@@ -40,6 +38,12 @@ router.post('/myAlbum', asyncHandler(async (req, res) => {
   return res.json(newAlbumWithUser)
 }));
 
-
+//Delete album
+router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
+  const albumId = parseInt(req.params.id, 10);
+  const albumToDelete = await Album.findByPk(albumId);
+  const removed = await albumToDelete.destroy();
+  return res.json(removed)
+}));
 
 module.exports = router;

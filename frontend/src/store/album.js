@@ -1,7 +1,8 @@
 import { csrfFetch } from './csrf';
 
-const LOAD = 'albums/LOAD'
-const CREATE = 'albums/CREATE'
+const LOAD = 'albums/LOAD';
+const CREATE = 'album/CREATE';
+const DELETEALBUM = 'album/DELETE';
 
 const load = albums => ({
   type: LOAD,
@@ -13,8 +14,13 @@ const create = album => ({
   album
 })
 
+const toDelete = albumId => ({
+  type: DELETEALBUM,
+  albumId
+})
+
 export const getAlbum = () => async dispatch => {
-  const res = await fetch('/api/albums');
+  const res = await csrfFetch('/api/albums');
   if (res.ok) {
     const albums = await res.json(); //array
     dispatch(load(albums));
@@ -22,10 +28,9 @@ export const getAlbum = () => async dispatch => {
 }
 
 export const getMyAlbum = (userId) => async dispatch => {
-  const res = await fetch(`/api/albums/${userId}`);
+  const res = await csrfFetch(`/api/albums/${userId}`);
   if (res.ok) {
     const albums = await res.json(); //array
-    // console.log(albums)
     dispatch(load(albums));
   }
 }
@@ -45,6 +50,18 @@ export const createAlbum = (album) => async dispatch => {
   }
 }
 
+export const deleteAlbum = (id) => async dispatch => {
+  const {albumId} = id;
+  const res = await csrfFetch(`/api/albums/${albumId}`, {
+    method: 'DELETE'
+  });
+  if (res.ok) {
+    const remove = await res.json();
+    dispatch(toDelete(albumId));
+    return remove;
+  }
+}
+
 const albumReducer = (state = {}, action) => {
   switch (action.type) {
     case LOAD: {
@@ -58,6 +75,11 @@ const albumReducer = (state = {}, action) => {
     case CREATE: {
       const newAlbum = {...state}
       newAlbum[action.album.id] = action.album;
+      return newAlbum;
+    }
+    case DELETEALBUM: {
+      const newAlbum = {...state}
+      delete newAlbum[action.albumId];
       return newAlbum;
     }
     default:

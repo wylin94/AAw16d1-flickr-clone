@@ -8,7 +8,9 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import MyAlbum from "./components/MyAlbum";
-import CreateAlbum from "./components/CreateAlbumForm";
+import CreateAlbumForm from "./components/CreateAlbumForm";
+import SelectedAlbum from "./components/SelectedAlbum";
+import PageNotFound from "./components/PageNotFound";
 import * as sessionActions from "./store/session";
 import { Redirect } from 'react-router-dom';
 
@@ -39,10 +41,13 @@ function App() {
             {sessionUser ? (<MyAlbum />) : (<Redirect to="/login" />)}
           </Route>
           <Route path="/createAlbumForm">
-            {sessionUser ? (<CreateAlbum />) : (<Redirect to="/login" />)}
+            {sessionUser ? (<CreateAlbumForm />) : (<Redirect to="/login" />)}
+          </Route>
+          <Route path="/albums/:albumId">
+            {sessionUser ? (<SelectedAlbum />) : (<Redirect to="/login" />)}
           </Route>
           <Route>
-            <h2>Having too much fun? Let's come back home.</h2>
+            <PageNotFound />
           </Route>
         </Switch>
       )}

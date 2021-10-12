@@ -1,0 +1,57 @@
+.pageNotFound {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-image: url('../../images/PageNotFound.jpeg');
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+.darken{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(0, 0, 0, 0.6);
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+.error{
+  color: white;
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.comeBackHome {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.home {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 15px;
+  margin: 20px;
+  background-color: rgb(255, 255, 255, 0.6);
+  border: 1px solid white;
+  color: rgb(58, 58, 58);
+  border: 3px solid rgb(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.home:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.home:active {
+  border: 3px solid grey;
+}

@@ -78,6 +78,7 @@
 
 .loginForm button:hover, .demoForm button:hover {
   background-color: #1598e9;
+  cursor: pointer;
 }
 
 .loginForm button:active, .demoForm button:active {
