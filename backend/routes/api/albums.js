@@ -7,7 +7,8 @@ const router = express.Router();
 //Get all album on homepage
 router.get('/', asyncHandler(async (req, res) => {
   const albums = await Album.findAll({
-    include: [User]
+    include: [User],
+    order: [["createdAt", "DESC"]],
   });
   return res.json(albums)
 }));
@@ -17,14 +18,16 @@ router.get('/:id', asyncHandler(async (req, res) => {
   const userId = parseInt(req.params.id, 10);
   const albums = await Album.findAll({
     where: { userId },
-    include: [ User ]
+    include: [ User ],
+    order: [["createdAt", "DESC"]],
   });
+  console.log(11111111111111111111111111)
+  console.log(albums)
   return res.json(albums)
 }));
 
 //Create new album
 router.post('/myAlbum', asyncHandler(async (req, res) => {
-  console.log(66666)
   const { url, title, userId} = req.body;
   const newAlbum = await Album.create({
     coverImageUrl: url,

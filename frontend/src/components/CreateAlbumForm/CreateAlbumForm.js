@@ -11,12 +11,9 @@ function CreateAlbumForm() {
   const [url, setUrl] = useState('');
   const [title, setTitle] = useState('');
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(222222)
     let newAlbum = await dispatch(createAlbum({url, title, userId}));
-
     if (newAlbum) {
       history.push('/myAlbums')
     }
