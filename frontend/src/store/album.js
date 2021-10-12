@@ -62,6 +62,10 @@ export const deleteAlbum = (id) => async dispatch => {
   }
 }
 
+export const editAlbum = (id) => async dispatch => {
+
+}
+
 const albumReducer = (state = {}, action) => {
   switch (action.type) {
     case LOAD: {

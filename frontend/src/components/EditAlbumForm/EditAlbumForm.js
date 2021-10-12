@@ -1,20 +1,28 @@
 import { useState } from "react";
-import { useHistory } from "react-router";
+import { useParams, useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { createAlbum } from '../../store/album';
+import { editAlbum } from '../../store/album';
 
-function CreateAlbumForm() {
+function EditAlbumForm() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const params = useParams();
+  const albumId = params.albumId
   const userId = useSelector((state) => state.session.user.id)
 
-  const [url, setUrl] = useState('');
-  const [title, setTitle] = useState('');
+  // const selectedAlbum = useSelector((state) => state.album.find(ele => ele.id === albumId));
+  console.log(11111111111)
+  // console.log(selectedAlbum);
+  // const currentUrl = selectedAlbum.coverImageUrl;
+  // const currentTitle = selectedAlbum.title;
 
-  const handleCreateSubmit = async (e) => {
+  const [url, setUrl] = useState();
+  const [title, setTitle] = useState();
+
+  const handleEditSubmit = async (e) => {
     e.preventDefault();
-    let newAlbum = await dispatch(createAlbum({url, title, userId}));
-    if (newAlbum) {
+    let edit = await dispatch(editAlbum({url, title, userId}));
+    if (edit) {
       history.push('/myAlbums')
     }
   }
@@ -26,19 +34,17 @@ function CreateAlbumForm() {
 
   return (
     <>
-      <h2>Create Album</h2>
-      <form onSubmit={handleCreateSubmit}>
+      <h2>Edit Album</h2>
+      <form onSubmit={handleEditSubmit}>
         <label>Album Cover Image URL</label>
         <input 
           type='text'
-          placeholder='Image URL'
           required
           value={url}
           onChange={e => setUrl(e.target.value)} />
         <label>Album Title</label>
         <input 
           type='text'
-          placeholder='Albume Title'
           required
           value={title}
           onChange={e => setTitle(e.target.value)} />
@@ -49,4 +55,4 @@ function CreateAlbumForm() {
   )
 }
 
-export default CreateAlbumForm;
+export default EditAlbumForm;

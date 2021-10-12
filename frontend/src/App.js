@@ -9,6 +9,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import MyAlbum from "./components/MyAlbum";
 import CreateAlbumForm from "./components/CreateAlbumForm";
+import EditAlbumForm from "./components/EditAlbumForm";
 import SelectedAlbum from "./components/SelectedAlbum";
 import PageNotFound from "./components/PageNotFound";
 import * as sessionActions from "./store/session";
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route path="/albums/:albumId">
             {sessionUser ? (<SelectedAlbum />) : (<Redirect to="/login" />)}
+          </Route>
+          <Route path="/editAlbumForm/:albumId">
+            {sessionUser ? (<EditAlbumForm />) : (<Redirect to="/login" />)}
           </Route>
           <Route>
             <PageNotFound />

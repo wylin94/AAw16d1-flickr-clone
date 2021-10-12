@@ -27,7 +27,7 @@ function LandingPage() {
   return (
     <div className={styles.landingPageContainer} style={{backgroundImage: 'url(' + images[index] + ')'}}>
       <div className={styles.landingPageSlogan}>Find your inspiration.</div>
-      <p className={styles.landingPageDes}>Join the Veilr community, home to thousands of professional<br/> photographers and a place to find your inspiration.</p>
+      <p className={styles.landingPageDes}>Join the Veilr community, home to thousands of professional<br/> photographers and endless ideas.</p>
       <a className={styles.starForFree} href="/signup">Start</a>
       <div className={styles.landingPageFooter}>
         <div className={styles.footerLeft}>© 2021 Veilr. No rights reserved.</div>

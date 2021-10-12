@@ -16,7 +16,7 @@ function PageNotFound() {
         <div className={styles.error}>404</div>
         <div className={styles.comeBackHome}>Having too much fun?</div>
         <div className={styles.comeBackHome}>Let's get you back home.</div>
-        <button className={styles.home} onClick={handleHomeClick}>Home</button>
+        <button className={styles.homeButton} onClick={handleHomeClick}>Home</button>
       </div>
     </div>
   )
