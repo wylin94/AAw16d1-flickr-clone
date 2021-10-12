@@ -17,20 +17,24 @@ router.get('/:id', asyncHandler(async (req, res) => {
   const userId = parseInt(req.params.id, 10);
   const albums = await Album.findAll({
     where: { userId },
-    include: [User]
+    include: [ User ]
   });
   return res.json(albums)
 }));
 
 //Create new album
 router.post('/myAlbum', asyncHandler(async (req, res) => {
+  console.log(66666)
   const { url, title, userId} = req.body;
-  const post = await Album.create({
+  const newAlbum = await Album.create({
     coverImageUrl: url,
     title,
     userId
   })
-  // return res.json({post})
+  const newAlbumWithUser = await Album.findByPk(newAlbum.id, {
+    include: [User]
+  })
+  return res.json(newAlbumWithUser)
 }));
 
 

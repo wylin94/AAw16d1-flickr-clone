@@ -13,17 +13,13 @@ function CreateAlbumForm() {
 
 
   const handleSubmit = async (e) => {
-    console.log(111111111111)
     e.preventDefault();
-
+    console.log(222222)
     let newAlbum = await dispatch(createAlbum({url, title, userId}));
-    console.log('***************')
-    console.log('DONE')
-    console.log('***************')
+
     if (newAlbum) {
       history.push('/myAlbums')
     }
-    history.push('/myAlbums')
   }
 
   const handleCancelClick = (e) => {

@@ -1,10 +1,16 @@
 import { csrfFetch } from './csrf';
 
 const LOAD = 'albums/LOAD'
+const CREATE = 'albums/CREATE'
 
 const load = albums => ({
   type: LOAD,
   albums
+})
+
+const create = album => ({
+  type: CREATE,
+  album
 })
 
 export const getAlbum = () => async dispatch => {
@@ -32,12 +38,16 @@ export const createAlbum = (album) => async dispatch => {
   });
 
   if (res.ok) {
-    const albums = await res.json();
-    dispatch(load(albums));
+    console.log(555555)
+    const album = await res.json();
+    console.log(album)
+    dispatch(create(album));
+    return album;
   }
 }
 
 const albumReducer = (state = {}, action) => {
+  console.log(action)
   switch (action.type) {
     case LOAD: {
       const allAlbums = {};
@@ -45,6 +55,11 @@ const albumReducer = (state = {}, action) => {
         allAlbums[album.id] = album;
       });
       return {...allAlbums};
+    }
+    case CREATE: {
+      const newAlbum = {...state}
+      newAlbum[action.album.id] = action.album;
+      return newAlbum;
     }
     default:
       return state;

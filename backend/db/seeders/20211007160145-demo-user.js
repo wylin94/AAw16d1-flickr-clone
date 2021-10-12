@@ -12,7 +12,7 @@ module.exports = {
       },
       {
         email: 'andreNguyen@user.io',
-        username: 'Andre Nguyen',
+        username: 'test',
         hashedPassword: bcrypt.hashSync('password'),
       },
       {
