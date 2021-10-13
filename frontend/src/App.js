@@ -41,13 +41,13 @@ function App() {
           <Route path="/myAlbums">
             {sessionUser ? (<MyAlbum />) : (<Redirect to="/login" />)}
           </Route>
-          <Route path="/createAlbumForm">
+          <Route path="/createAlbum">
             {sessionUser ? (<CreateAlbumForm />) : (<Redirect to="/login" />)}
           </Route>
-          <Route path="/albums/:albumId">
+          <Route exact path="/albums/:albumId">
             {sessionUser ? (<SelectedAlbum />) : (<Redirect to="/login" />)}
           </Route>
-          <Route path="/editAlbumForm/:albumId">
+          <Route path="/albums/:albumId/edit">
             {sessionUser ? (<EditAlbumForm />) : (<Redirect to="/login" />)}
           </Route>
           <Route>

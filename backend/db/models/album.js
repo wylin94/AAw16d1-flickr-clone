@@ -13,15 +13,15 @@ module.exports = (sequelize, DataTypes) => {
     title: {
       type: DataTypes.TEXT,
       allowNull: false,
-      validate: {
-        max: 1000
-      }
+      // validate: {
+      //   max: 1000
+      // }
     }
   }, {});
 
   Album.associate = function(models) {
     Album.belongsTo(models.User, { foreignKey: 'userId' });
-    Album.hasMany(models.Image, { foreignKey: 'albumId' });
+    Album.hasMany(models.Image, { foreignKey: 'albumId', onDelete:'CASCADE', hooks:true });
   };
 
   return Album;

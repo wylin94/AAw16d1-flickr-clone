@@ -1,5 +1,6 @@
 import EditAlbumForm from '../components/EditAlbumForm';
 import { csrfFetch } from './csrf';
+import { useSelector } from 'react-redux';
 
 const LOAD = 'albums/LOAD';
 const CREATE = 'album/CREATE';
@@ -57,31 +58,31 @@ export const createAlbum = (album) => async dispatch => {
 }
 
 export const deleteAlbum = (albumId) => async dispatch => {
+  console.log(222222)
   const res = await csrfFetch(`/api/albums/${albumId}`, {
     method: 'DELETE'
   });
+  console.log(33333)
   if (res.ok) {
+    console.log(44444)
     const remove = await res.json();
+    console.log(555555)
     dispatch(toDelete(albumId));
+    console.log(8888)
     return remove;
   }
 }
 
 export const editAlbum = (album) => async dispatch => {
   const {url, title, albumId} = album;
-  console.log(2222222)
   const res = await csrfFetch(`/api/albums/${albumId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({url, title,}),
   })
-  console.log(55555555)
   if (res.ok) {
-    console.log(666666)
     const edit = await res.json();
-    console.log(777777)
     dispatch(toEdit(album));
-    console.log(8888888)
     return edit;
   }
 }
@@ -97,13 +98,17 @@ const albumReducer = (state = [], action) => {
       return action.albums;
     }
     case CREATE: {
-      const newAlbum = {...state}
-      newAlbum[action.album.id] = action.album;
+      const newAlbum = [...state]
+      newAlbum.shift(action.album);
       return newAlbum;
     }
     case DELETEALBUM: {
-      const newAlbum = {...state}
-      delete newAlbum[action.albumId];
+      // const newAlbum = {...state};
+      // delete newAlbum[action.albumId];
+      const currentAlbum = [...state];
+      const newAlbum = currentAlbum.filter(ele => {
+        return ele.id !== action.albumId
+      })
       return newAlbum;
     }
     case EDIT: {
@@ -114,9 +119,6 @@ const albumReducer = (state = [], action) => {
           ele.title = action.album.title;
         }
       });
-      console.log(1111111111)
-      console.log(newAlbum)
-      console.log(1111111111)
       return newAlbum;
     }
     default:

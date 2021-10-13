@@ -17,7 +17,7 @@ function MyAlbum() {
   return (
     <div className={styles.homePageContainer}>
       <div className={styles.homePageAlbumContainer}>
-        <NavLink to='/createAlbumForm'>New Album</NavLink>
+        <NavLink to='/createAlbum'>New Album</NavLink>
         <div className={styles.albums}>
           {albums.map(album => {
             return (

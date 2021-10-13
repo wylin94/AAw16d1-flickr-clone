@@ -40,23 +40,24 @@ router.post('/myAlbum', asyncHandler(async (req, res) => {
 
 //Delete album
 router.delete('/:id(\\d+)', asyncHandler(async (req, res) => {
+  console.log(111111)
   const albumId = parseInt(req.params.id, 10);
+  console.log(22222)
   const albumToDelete = await Album.findByPk(albumId);
+  console.log(33333)
   const removed = await albumToDelete.destroy();
+  console.log(44444)
   return res.json(removed)
 }));
 
 //Edit album
 router.put('/:id(\\d+)', asyncHandler(async (req, res) => {
-  console.log(3333333)
   const { url, title } = req.body;
   const albumId = parseInt(req.params.id, 10);
   const albumToEdit = await Album.findByPk(albumId);
-  console.log(44444444)
   albumToEdit.coverImageUrl = url;
   albumToEdit.title = title;
   await albumToEdit.save();
-  console.log(454545454545)
   return res.json(albumToEdit)
 }));
 

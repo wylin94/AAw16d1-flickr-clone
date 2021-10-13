@@ -20,8 +20,9 @@ function HomePage() {
           {albums.map(album => {
             return (
               <div key={album.id}className={styles.album}>
-                <NavLink to=''></NavLink>
-                <img className={styles.albumCover} src={album.coverImageUrl} alt={album.title}></img>
+                <NavLink to={`/albums/${album.id}`}>
+                  <img className={styles.albumCover} src={album.coverImageUrl} alt={album.title}></img>
+                </NavLink>
                 <span>{album.User.username}</span>
                 <span>{album.title}</span>
               </div>

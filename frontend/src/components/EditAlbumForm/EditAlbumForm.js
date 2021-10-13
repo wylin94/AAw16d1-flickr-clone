@@ -17,7 +17,6 @@ function EditAlbumForm() {
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
-    console.log(1111111)
     let edit = await dispatch(editAlbum({url, title, albumId}));
     if (edit) {
       history.push('/myAlbums')
