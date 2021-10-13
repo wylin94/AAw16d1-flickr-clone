@@ -1,13 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import styles from './MyAlbum.module.css';
 import { getMyAlbum } from '../../store/album';
 
 function MyAlbum() {
   const dispatch = useDispatch();
   const albums = useSelector((state) => Object.values(state.album))
-  const userId = useSelector((state) => state.session.user.id)
+  const userId = useSelector((state) => state.session.user.id);
 
   useEffect(() => {
     dispatch(getMyAlbum(userId));

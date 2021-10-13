@@ -2,16 +2,16 @@ import { useParams, useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { deleteAlbum, editAlbum } from "../../store/album";
+import { deleteAlbum } from "../../store/album";
 
 function SelectedAlbum() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const params = useParams();
+  const {albumId} = useParams();
 
   const handleDeleteClick = async (e) => {
     e.preventDefault();
-    const toRemove = await dispatch(deleteAlbum(params));
+    const toRemove = await dispatch(deleteAlbum(albumId));
     if (toRemove) {
       history.push('/myAlbums')
     }
@@ -28,7 +28,7 @@ function SelectedAlbum() {
   return (
     <div>
       <div>
-        <NavLink to={`/editAlbumForm/${params.albumId}`}>Edit Album</NavLink>
+        <NavLink to={`/editAlbumForm/${albumId}`}>Edit Album</NavLink>
         {/* <button onClick={handleEditClick}>Edit Album</button> */}
         <button onClick={handleDeleteClick}>Delete Album</button>
         <span></span>
