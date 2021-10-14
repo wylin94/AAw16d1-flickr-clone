@@ -16,10 +16,11 @@ function HomePage() {
   return (
     <div className={styles.homePageContainer}>
       <div className={styles.homePageAlbumContainer}>
+        <h1>Explore</h1>
         <div className={styles.albums}>
           {albums.map(album => {
             return (
-              <div key={album.id}className={styles.album}>
+              <div key={album.id} className={styles.album}>
                 <NavLink to={`/albums/${album.id}`}>
                   <img className={styles.albumCover} src={album.coverImageUrl} alt={album.title}></img>
                 </NavLink>

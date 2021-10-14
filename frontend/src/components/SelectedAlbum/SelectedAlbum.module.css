@@ -1,0 +1,30 @@
+.selectedAlbumContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imageContainer {
+  background-color: white;
+  width: 80%;
+  margin: 40px auto;
+  padding: 15px;
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.image {
+  width: 350px;
+  height: auto;
+  margin: 10px;
+}
+
+.imageCover {
+  max-width: 100%;
+  height: auto;
+}

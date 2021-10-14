@@ -2,18 +2,23 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
+import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import HomePage from "./components/HomePage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
-import Navigation from "./components/Navigation";
+
 import MyAlbum from "./components/MyAlbum";
 import CreateAlbumForm from "./components/CreateAlbumForm";
-import EditAlbumForm from "./components/EditAlbumForm";
 import SelectedAlbum from "./components/SelectedAlbum";
+import EditAlbumForm from "./components/EditAlbumForm";
+
+import CreateImageForm from "./components/CreateImageForm";
+import SelectedImage from "./components/SelectedImage";
 import PageNotFound from "./components/PageNotFound";
 import * as sessionActions from "./store/session";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
+
 
 function App() {
   const sessionUser = useSelector(state => state.session.user);
@@ -49,6 +54,12 @@ function App() {
           </Route>
           <Route path="/albums/:albumId/edit">
             {sessionUser ? (<EditAlbumForm />) : (<Redirect to="/login" />)}
+          </Route>
+          <Route path="/createImage/:albumId">
+            {sessionUser ? (<CreateImageForm />) : (<Redirect to="/login" />)}
+          </Route>
+          <Route path="/images/:imageId">
+            {sessionUser ? (<SelectedImage />) : (<Redirect to="/login" />)}
           </Route>
           <Route>
             <PageNotFound />

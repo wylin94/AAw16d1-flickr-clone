@@ -7,7 +7,7 @@ import { getMyAlbum } from '../../store/album';
 
 function MyAlbum() {
   const dispatch = useDispatch();
-  const albums = useSelector((state) => Object.values(state.album))
+  const albums = useSelector((state) => state.album); // removed object.value and still work
   const userId = useSelector((state) => state.session.user.id);
 
   useEffect(() => {
@@ -17,11 +17,14 @@ function MyAlbum() {
   return (
     <div className={styles.homePageContainer}>
       <div className={styles.homePageAlbumContainer}>
-        <NavLink to='/createAlbum'>New Album</NavLink>
+        <h1>You</h1>
+        <div>
+          <NavLink to='/createAlbum'>Add Album</NavLink>
+        </div>
         <div className={styles.albums}>
           {albums.map(album => {
             return (
-              <div key={album.id}className={styles.album}>
+              <div key={album.id} className={styles.album}>
                 <NavLink to={`/albums/${album.id}`}>
                   <img className={styles.albumCover} src={album.coverImageUrl} alt={album.title}></img>
                 </NavLink>

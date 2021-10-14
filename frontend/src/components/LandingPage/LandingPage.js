@@ -3,16 +3,30 @@ import { useEffect, useState } from 'react';
 
 function LandingPage() {
   const images = [
-    'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/2db5ed2cd9fe166851105c49c207d8d6-xxlarge.jpeg',
-    'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/6d904ace8ebbc60021968739b7482192-xxlarge.jpeg',
-    'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/7e7b3968aaccfc8a739b609da291e600-xxlarge.jpeg',
-    'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/b6ade0618e963363c90687b49c0684ec-xxlarge.jpeg',
-    'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/Resized-A%26C-WeddingHighlights-37.jpeg',
-    'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/Resized-A%26M-WeddingHighlights-14.jpeg',
-    'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/Resized-A%26M-WeddingHighlights-67.jpeg',
-    'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/Resized-A%26P-WeddingHighlights-20.jpg',
-    'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/Resized-A%26P-WeddingHighlights-30.jpg',
-    'https://remember-flickr-clone.s3.us-west-1.amazonaws.com/Landing+Page/Resized-C%26R-WeddingHighlights-3.jpeg',
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage1.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage2.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage3.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage4.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage5.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage6.jpg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage7.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage8.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage9.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage10.jpg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage11.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage12.jpg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage13.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage14.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage15.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage16.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage17.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage18.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage19.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage20.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage21.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage22.jpeg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage23.jpg",
+    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage24.jpeg",
   ]
 
   const [index, setIndex] = useState(0);
@@ -22,7 +36,7 @@ function LandingPage() {
       if (index === images.length - 1) {setIndex(0)} else {setIndex(index + 1)}
     }, 5000)
     return () => {clearTimeout(timer)}
-  }, [index])
+  }, [index, images.length])
 
   return (
     <div className={styles.landingPageContainer} style={{backgroundImage: 'url(' + images[index] + ')'}}>

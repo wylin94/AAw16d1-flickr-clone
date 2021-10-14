@@ -44,7 +44,8 @@ function Navigation({ isLoaded }){
 
               <div className={styles.homepageNavLeft}>
                 <NavLink className={styles.homepageLogoText} exact to="/">veilr</NavLink>
-                <NavLink exact to="/myAlbums">You</NavLink>
+                <NavLink className={styles.you} exact to="/myAlbums">You</NavLink>
+                <NavLink className={styles.explore} exact to="/">Explore</NavLink>
               </div>
 
               <div className={styles.homepageNavRight}>

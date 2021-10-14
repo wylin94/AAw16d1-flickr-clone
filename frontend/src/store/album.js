@@ -1,6 +1,4 @@
-import EditAlbumForm from '../components/EditAlbumForm';
 import { csrfFetch } from './csrf';
-import { useSelector } from 'react-redux';
 
 const LOAD = 'albums/LOAD';
 const CREATE = 'album/CREATE';
@@ -10,22 +8,22 @@ const EDIT = 'album/EDIT';
 const load = albums => ({
   type: LOAD,
   albums
-})
+});
 
 const create = album => ({
   type: CREATE,
   album
-})
-
-const toDelete = albumId => ({
-  type: DELETEALBUM,
-  albumId
-})
+});
 
 const toEdit = album => ({
   type: EDIT,
   album
-})
+});
+
+const toDelete = albumId => ({
+  type: DELETEALBUM,
+  albumId
+});
 
 export const getAlbum = () => async dispatch => {
   const res = await csrfFetch('/api/albums');
@@ -45,7 +43,7 @@ export const getMyAlbum = (userId) => async dispatch => {
 
 export const createAlbum = (album) => async dispatch => {
   const { url, title, userId } = album;
-  const res = await csrfFetch(`/api/albums/myAlbum`, {
+  const res = await csrfFetch(`/api/albums`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({url, title, userId}),
@@ -58,17 +56,12 @@ export const createAlbum = (album) => async dispatch => {
 }
 
 export const deleteAlbum = (albumId) => async dispatch => {
-  console.log(222222)
   const res = await csrfFetch(`/api/albums/${albumId}`, {
     method: 'DELETE'
   });
-  console.log(33333)
   if (res.ok) {
-    console.log(44444)
     const remove = await res.json();
-    console.log(555555)
     dispatch(toDelete(albumId));
-    console.log(8888)
     return remove;
   }
 }
@@ -102,15 +95,6 @@ const albumReducer = (state = [], action) => {
       newAlbum.shift(action.album);
       return newAlbum;
     }
-    case DELETEALBUM: {
-      // const newAlbum = {...state};
-      // delete newAlbum[action.albumId];
-      const currentAlbum = [...state];
-      const newAlbum = currentAlbum.filter(ele => {
-        return ele.id !== action.albumId
-      })
-      return newAlbum;
-    }
     case EDIT: {
       const newAlbum = [...state]
       newAlbum.forEach(ele => {
@@ -119,6 +103,15 @@ const albumReducer = (state = [], action) => {
           ele.title = action.album.title;
         }
       });
+      return newAlbum;
+    }
+    case DELETEALBUM: {
+      // const newAlbum = {...state};
+      // delete newAlbum[action.albumId];
+      const currentAlbum = [...state];
+      const newAlbum = currentAlbum.filter(ele => {
+        return ele.id !== action.albumId
+      })
       return newAlbum;
     }
     default:
