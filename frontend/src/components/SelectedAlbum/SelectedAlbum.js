@@ -25,6 +25,16 @@ function SelectedAlbum() {
     }
   }
 
+  const handleOpenClick = (e) => {
+    const albumNav = document.querySelector("#imageNav");
+    albumNav.scrollIntoView({behavior: "smooth"});
+  }
+
+  const handleBackUpClick = (e) => {
+    const albumNav = document.querySelector("#imageNav");
+    albumNav.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+  }
+
   useEffect(() => {
     dispatch(getImage(currentAlbum));
   }, [dispatch, currentAlbum, sessionUser])
@@ -37,47 +47,56 @@ function SelectedAlbum() {
       }
     }
     setAlbumImages(newImages);
-  }, [images, albumId])
+  }, [images, albumId]) 
 
+  window.scrollTo(0, 0);
+  
   return (
-    <div className={styles.selectedAlbumContainer}>
+    <div className={styles.selectedAlbumPage}>
 
-      <div className={styles.albumCoverContainer}>
-        <img ClassName={styles.albumCoverImage} src={currentAlbum.coverImageUrl} alt="albumCover"></img>
+      <div className={styles.albumCoverContainer} style={{backgroundImage: `url(${currentAlbum.coverImageUrl})`}}>
+        <div className={styles.darken}> 
+          <h1 className={styles.inCoverTitle}>{currentAlbum.title.toUpperCase()}</h1>
+          <button className={styles.openScroll} onClick={handleOpenClick}>OPEN</button>
+        </div>
       </div>
 
-      <div className={styles.albumNavContainer}>
-        <h2>{currentAlbum.title}</h2>
-        <div>
-          {sessionUser.id === currentAlbum.userId && 
-            <NavLink to={`/albums/${albumId}/edit`}>
-              <i class="fas fa-edit"></i>
-            </NavLink>}
-          {sessionUser.id === currentAlbum.userId && 
-            <button onClick={handleDeleteClick}>
-              <i class="fas fa-trash-alt"></i>
-            </button>}
-          {sessionUser.id === currentAlbum.userId &&
-            <NavLink to={`/createImage/${albumId}`}>
-              <i class="fas fa-camera"></i>
-            </NavLink>}
+      <div id='imageNav' className={styles.albumNavContainer}>
+        <div className={styles.albumNav}>
+          <div className={styles.navLeft}> 
+            <NavLink title='Back' className={styles.addImage} to={`/`}>
+              <i class="fas fa-arrow-left"></i>
+            </NavLink>
+            <h2 className={styles.title}>{currentAlbum.title}</h2>
+          </div>
+          <div className={styles.navRight}>
+            {sessionUser.id === currentAlbum.userId &&
+              <NavLink title="Add Image"className={styles.addImage} to={`/createImage/${albumId}`}>
+                <i class="fas fa-camera"></i>
+              </NavLink>}
+            {sessionUser.id === currentAlbum.userId && 
+              <NavLink title="Edit Album" className={styles.editAlbum} to={`/albums/${albumId}/edit`}>
+                <i class="fas fa-edit"></i>
+              </NavLink>}
+            {sessionUser.id === currentAlbum.userId && 
+              <button title="Delete Album" className={styles.deleteAlbum} onClick={handleDeleteClick}>
+                <i class="fas fa-trash-alt"></i>
+              </button>}
+          </div>
         </div>
       </div>
 
       <div className={styles.imageContainer}>
-        <div className={styles.images}>
-          {currentAlbumImages.map(image => {
-            return (
-              <div key={image.id} className={styles.image}>
-                <NavLink to={`/images/${image.id}`}>
-                  <img className={styles.imageCover} src={image.imageUrl} alt={image.description}></img>
-                </NavLink>
-              </div>
-            )
-          })}
-        </div>
+        {currentAlbumImages.map(image => {
+          return (
+              <NavLink className={styles.aTag} key={image.id} to={`/images/${image.id}`}>
+                <img className={styles.image} src={image.imageUrl} alt={image.description}></img>
+              </NavLink>
+          )
+        })}
       </div>
       
+      <button className={styles.backToTop} onClick={handleBackUpClick}>BACK TO TOP</button>
     </div>
   )
 }

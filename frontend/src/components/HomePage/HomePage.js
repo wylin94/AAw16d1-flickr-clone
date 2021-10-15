@@ -13,6 +13,8 @@ function HomePage() {
     dispatch(getAlbum());
   }, [dispatch])
 
+  window.scrollTo(0, 0);
+  
   return (
     <div className={styles.homePageContainer}>
       <div className={styles.homePageAlbumContainer}>
