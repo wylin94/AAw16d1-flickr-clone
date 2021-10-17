@@ -115,7 +115,7 @@
 .homepageNavLeft {
   display: flex;
   align-items: center;
-  gap: 45px;
+  gap: 35px;
   color: white;
 }
 
@@ -127,7 +127,7 @@
 
 .you, .explore {
   text-decoration: none;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .you:hover, .explore:hover {
@@ -145,7 +145,7 @@
 }
 
 .homepageLinkedinIcon, .homepageGithubIcon {
-  font-size: 32px;
+  font-size: 30px;
 }
 
 .homepageLinkedinIcon:hover {
