@@ -59,6 +59,9 @@ function App() {
           <Route path="/images/:imageId">
             {sessionUser ? (<SelectedImage />) : (<Redirect to="/login" />)}
           </Route>
+          <Route path="/pathNotFound">
+            <PageNotFound />
+          </Route>
           <Route>
             <PageNotFound />
           </Route>
