@@ -13,7 +13,7 @@ function HomePage() {
     dispatch(getAlbum());
   }, [dispatch])
 
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
   
   return (
     <div className={styles.homePageContainer}>
@@ -26,8 +26,15 @@ function HomePage() {
                 <NavLink to={`/albums/${album.id}`}>
                   <img className={styles.albumCover} src={album.coverImageUrl} alt={album.title}></img>
                 </NavLink>
-                <span>{album.User.username}</span>
-                <span>{album.title}</span>
+                <div className={styles.albumInfo}>
+                  <div>
+                    <img className={styles.profilePicture} src={album.User.profileImageUrl} alt="userProfileCover"></img>
+                  </div>
+                  <div>
+                    <div className={styles.albumUsername}>{album.User.username}</div>
+                    <div className={styles.albumTitle}>{album.title}</div>
+                  </div>
+                </div>
               </div>
             )
           })}

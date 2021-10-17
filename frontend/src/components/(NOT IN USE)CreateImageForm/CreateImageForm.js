@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useHistory, useParams } from 'react-router';
 import { useSelector, useDispatch } from "react-redux";
+
 import { createImage } from '../../store/image';
+import styles from "./CreateImageForm.module.css"
 
 function CreateImageForm() {
   const dispatch = useDispatch();
@@ -26,7 +28,7 @@ function CreateImageForm() {
   };
 
   return (
-    <>
+    <div className={styles.createImageFormContainer}>
       <h2>Create Image</h2>
       <form onSubmit={handleCreateSubmit}>
         <label>Image URL</label>
@@ -46,7 +48,7 @@ function CreateImageForm() {
         <button type='submit'>Create</button>
         <button type="button" onClick={handleCancelClick}>Cancel</button>
       </form>
-    </>
+    </div>
   )
 }
 

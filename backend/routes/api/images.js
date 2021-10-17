@@ -12,9 +12,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     include: [{model: User}, { model: Album}],
     order: [["createdAt", "DESC"]],
   });
-  console.log(1111111111111111111111111)
-  console.log(typeof images)
-  console.log(images)
   const result = res.json(images)
   return res.json(images)
 }));

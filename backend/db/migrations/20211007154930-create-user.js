@@ -22,6 +22,12 @@ module.exports = {
         type: Sequelize.STRING.BINARY,
         allowNull: false,
       },
+      profileImageUrl: {
+        type: Sequelize.TEXT
+      },
+      coverImageUrl: {
+        type: Sequelize.TEXT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

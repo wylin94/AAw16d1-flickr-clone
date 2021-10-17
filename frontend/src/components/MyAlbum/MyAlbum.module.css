@@ -1,6 +1,42 @@
 .homePageContainer {
   display: flex;
   justify-content: center;
+  margin: 0px 0px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  top: 0;
+  background-position: center center;
+  background-size: cover;
+  min-height: 45vh;
+  min-width: 100%;
+}
+
+.profileWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 30px;
+  width: 80%;
+  gap: 30px;;
+}
+
+.profilePicture {
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+}
+
+.profileName {
+  font-size: 30px;
+  color: white;
 }
 
 .homePageAlbumContainer {
@@ -10,9 +46,17 @@
   padding: 15px;
 }
 
+.addAlbum {
+  border: none;
+  background-color: transparent;
+  color: grey;
+  font-size: 20px;
+  padding: 0;
+}
+
 .albums {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -26,4 +70,15 @@
 .albumCover {
   max-width: 100%;
   height: auto;
+}
+
+.albumCover:hover {
+  opacity: 0.8;
+}
+
+.albumInfo {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  color: grey;
 }

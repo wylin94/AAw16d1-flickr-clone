@@ -55,17 +55,6 @@ export const createAlbum = (album) => async dispatch => {
   }
 }
 
-export const deleteAlbum = (albumId) => async dispatch => {
-  const res = await csrfFetch(`/api/albums/${albumId}`, {
-    method: 'DELETE'
-  });
-  if (res.ok) {
-    const remove = await res.json();
-    dispatch(toDelete(albumId));
-    return remove;
-  }
-}
-
 export const editAlbum = (album) => async dispatch => {
   const {url, title, albumId} = album;
   const res = await csrfFetch(`/api/albums/${albumId}`, {
@@ -75,8 +64,20 @@ export const editAlbum = (album) => async dispatch => {
   })
   if (res.ok) {
     const edit = await res.json();
-    dispatch(toEdit(album));
+    console.log('return from database', edit)
+    dispatch(toEdit(edit));
     return edit;
+  }
+}
+
+export const deleteAlbum = (albumId) => async dispatch => {
+  const res = await csrfFetch(`/api/albums/${albumId}`, {
+    method: 'DELETE'
+  });
+  if (res.ok) {
+    const remove = await res.json();
+    dispatch(toDelete(albumId));
+    return remove;
   }
 }
 
@@ -92,27 +93,43 @@ const albumReducer = (state = [], action) => {
     }
     case CREATE: {
       const newAlbum = [...state]
-      newAlbum.shift(action.album);
+      newAlbum.unshift(action.album);
       return newAlbum;
     }
     case EDIT: {
       const newAlbum = [...state]
-      newAlbum.forEach(ele => {
-        if (ele.id === action.album.albumId) {
-          ele.coverImageUrl = action.album.url;
-          ele.title = action.album.title;
+      console.log('old state', newAlbum)
+      let index;
+      
+      // newAlbum.forEach(ele => {
+        // if (ele.id === action.album.id) {
+          // ele.coverImageUrl = action.album.coverImageUrl;
+          // ele.title = action.album.title;
+
+        // }
+      // });
+      for (let i = 0; i < newAlbum.length; i++) {
+        if (newAlbum[i].id === action.album.id) {
+          index = i;
+          // newAlbum[i].coverImageUrl = action.album.coverImageUrl;
+          // newAlbum[i].title = action.album.title;
+          break;
         }
-      });
+      }
+
+      newAlbum.splice(index, 1, action.album)
+
+      console.log('new state', newAlbum)
       return newAlbum;
     }
     case DELETEALBUM: {
       // const newAlbum = {...state};
       // delete newAlbum[action.albumId];
-      const currentAlbum = [...state];
-      const newAlbum = currentAlbum.filter(ele => {
+      const currentAlbums = [...state];
+      const newAlbums = currentAlbums.filter(ele => {
         return ele.id !== action.albumId
       })
-      return newAlbum;
+      return newAlbums;
     }
     default:
       return state;

@@ -1,0 +1,58 @@
+.editAlbumFormContainer {
+  border: 1px solid grey;
+  padding: 20px;
+  width: 350px;
+  border-radius: 5px;
+}
+
+.editAlbumFormTitle {
+  color: grey;
+  margin: 5px 0px 20px 7px;
+  font-size: 16px;
+}
+
+.editAlbumForm {
+  width: 100%;
+}
+
+.editAlbumForm label {
+  color: grey;
+  position: absolute;
+  margin-left: 18px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.editAlbumForm input {
+  display: block;
+  width: 300px;
+  height: 55px;
+  margin: 10px auto;
+  text-indent: 11px;
+  font-size: 15px;
+  padding-top: 20px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.editAlbumForm button{
+  display: block;
+  width: 300px;
+  margin: auto;
+  height: 40px;
+  background-color: #128fdc;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
+
+.editAlbumForm button:hover {
+  background-color: #1598e9;
+  cursor: pointer;
+}
+
+.editAlbumForm button:active {
+  background-color: #107fc4;
+}

@@ -4,11 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './MyAlbum.module.css';
 import { getMyAlbum } from '../../store/album';
+import CreateAlbumFormModal from '../CreateAlbumFormModal';
 
 function MyAlbum() {
   const dispatch = useDispatch();
   const albums = useSelector((state) => state.album); // removed object.value and still work
-  const userId = useSelector((state) => state.session.user.id);
+  const currentUser = useSelector((state) => state.session);
+  const userId = currentUser.user.id;
 
   useEffect(() => {
     dispatch(getMyAlbum(userId));
@@ -16,10 +18,20 @@ function MyAlbum() {
 
   return (
     <div className={styles.homePageContainer}>
+
+      <div className={styles.profileContainer} style={{backgroundImage: `url(${currentUser.user.coverImageUrl})`}}>
+        <div className={styles.profileWrapper}>
+          <img className={styles.profilePicture} src={currentUser.user.profileImageUrl} alt="profileImage"></img>
+          <div className={styles.profileName}>{currentUser.user.username}</div>
+        </div>
+      </div>
+
       <div className={styles.homePageAlbumContainer}>
-        <h1>You</h1>
         <div>
-          <NavLink to='/createAlbum'>Add Album</NavLink>
+          {/* <NavLink title="Add Album" className={styles.addAlbum} to='/createAlbum'>
+            <i class="fas fa-folder-plus"></i>
+          </NavLink> */}
+          <CreateAlbumFormModal />
         </div>
         <div className={styles.albums}>
           {albums.map(album => {
@@ -28,13 +40,16 @@ function MyAlbum() {
                 <NavLink to={`/albums/${album.id}`}>
                   <img className={styles.albumCover} src={album.coverImageUrl} alt={album.title}></img>
                 </NavLink>
-                <span>{album.User.username}</span>
-                <span>{album.title}</span>
+                <div className={styles.albumInfo}>
+                  <span>{album.title}</span>
+                </div>
               </div>
             )
           })}
         </div>
       </div>
+
+    
     </div>
   )
 }

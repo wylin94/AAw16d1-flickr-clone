@@ -43,13 +43,13 @@
   margin: 20px;
   background-color: rgb(255, 255, 255, 0.6);
   border: 1px solid white;
-  color: rgb(58, 58, 58);
+  color: rgb(104, 104, 104);
   border: 3px solid rgb(255, 255, 255, 0.1);
   border-radius: 5px;
 }
 
 .openScroll:hover {
-  color: grey;
+  color: rgb(160, 160, 160);
   cursor: pointer;
 }
 
@@ -116,23 +116,33 @@
   /* padding: 15px 15px; */
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .imageContainer {columns: 2;}
 }
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .imageContainer {columns: 3;}
 }
-@media (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .imageContainer {columns: 4;}
 }
 
-.aTag {
-  margin-bottom: 15px;
+.imageWrapper {
+  margin-bottom: 3px;
+}
+
+.imageWrapper:hover {
+  /* background-color: black; */
 }
 
 .image {
+  display: block;
   max-width: 100%;
   /* transition:transform 0.2s ease-in-out; */
+}
+
+.image:hover {
+  opacity: 0.8;
+  /* background-color: white; */
 }
 
 .backToTop {
@@ -140,7 +150,7 @@
   font-weight: bold;
   padding: 10px 15px;
   margin: 20px;
-  background-color: rgba(154, 154, 154, 0.6);
+  background-color: rgba(182, 182, 182, 0.6);
   border: 1px solid white;
   color: white;
   border: 3px solid rgb(255, 255, 255, 0.1);

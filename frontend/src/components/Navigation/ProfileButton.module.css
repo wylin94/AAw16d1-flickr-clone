@@ -6,8 +6,14 @@
   font-size: 28px;
 }
 
+.profileButtonImg {
+  width: 32px;
+  border-radius: 50px;
+}
+
 .profileButton:hover {
   color:rgb(170, 170, 170);
+  opacity: 0.8;
   cursor: pointer;
 }
 

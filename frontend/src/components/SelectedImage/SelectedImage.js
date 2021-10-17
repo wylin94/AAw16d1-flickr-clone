@@ -24,7 +24,8 @@ function SelectedImage() {
   return (
     <>
       <div className={styles.selectedImageContainer}>
-        <div>
+        <div className={styles.SelectedImageButtonContainer}>
+          {sessionUser.id === currentImage.userId && <button>Back</button>}
           {sessionUser.id === currentImage.userId && <button onClick={handleDeleteClick}>Delete Image</button>}
         </div>
         <div className={styles.imageContainer}>

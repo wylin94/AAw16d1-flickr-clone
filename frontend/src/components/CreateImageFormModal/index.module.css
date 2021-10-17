@@ -1,0 +1,12 @@
+.addImageButton {
+  border: none;
+  background-color: transparent;
+  color: grey;
+  font-size: 20px;
+  padding: 0;
+}
+
+.addImageButton:hover {
+  color: rgb(159, 159, 159);
+  cursor: pointer;
+}

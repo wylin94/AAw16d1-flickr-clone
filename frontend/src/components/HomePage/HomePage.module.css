@@ -1,6 +1,7 @@
 .homePageContainer {
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .homePageAlbumContainer {
@@ -12,18 +13,47 @@
 
 .albums {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .album {
-  width: 350px;
+  display: inline-block;
+  /* width: calc(50% - 4px); */
   height: auto;
   margin: 10px;
+}
+
+@media screen and (min-width: 50em) {
+  .album {
+    width: calc(25% - 6px);
+  }
 }
 
 .albumCover {
   max-width: 100%;
   height: auto;
+}
+
+.albumInfo {
+  display: flex;
+  margin: 10px;
+  gap: 10px;
+}
+
+.profilePicture {
+  width: 40px;
+  border-radius: 50px;
+}
+
+.albumUsername {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 2px;
+}
+
+.albumTitle {
+  color: grey;
+  margin: 2px;
 }

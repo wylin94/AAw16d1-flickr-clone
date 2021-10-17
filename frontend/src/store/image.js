@@ -19,13 +19,10 @@ const toDelete = imageId => ({
   imageId
 });
 
-export const getImage = (currentAlbum) => async dispatch => {
-  const res = await csrfFetch(`/api/images/${currentAlbum.id}`);
+export const getImage = (albumId) => async dispatch => {
+  const res = await csrfFetch(`/api/images/${albumId}`);
   if (res.ok) {
     const images = await res.json();
-    console.log(11111)
-    console.log('type of image:', typeof images)
-    console.log('why is this array then?', images)
     dispatch(load(images));
   }
 }
@@ -39,9 +36,6 @@ export const createImage = (image) => async dispatch => {
   });
   if (res.ok) {
     const image = await res.json();
-    console.log(222222)
-    console.log(typeof image)
-    console.log(image)
     dispatch(create(image));
     return image;
   }
@@ -53,10 +47,6 @@ export const deleteImage = (imageId) => async dispatch => {
   });
   if (res.ok) {
     const remove = await res.json();
-    
-    console.log(222222)
-    console.log(typeof remove)
-    console.log(remove)
     dispatch(toDelete(imageId));
     return remove;
   }
@@ -67,8 +57,18 @@ const imageReducer = ( state = [], action) => {
     case LOAD: {
       return action.images;
     }
-
-
+    case CREATE: {
+      const newImage = [...state];
+      newImage.unshift(action.image);
+      return newImage;
+    }
+    case DELETEIMAGE: {
+      const currentImages = [...state];
+      const newImages = currentImages.filter(ele => {
+        return ele.id !== action.albumId;
+      })
+      return newImages;
+    }
 
     default:
       return state;

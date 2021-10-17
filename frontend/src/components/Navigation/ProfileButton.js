@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router";
 
 import * as sessionActions from '../../store/session';
@@ -7,6 +7,7 @@ import styles from './ProfileButton.module.css';
 
 
 function ProfileButton({ user }) {
+  const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
@@ -34,10 +35,26 @@ function ProfileButton({ user }) {
     history.push('/login');
   };
 
+  let profileImg = 'block';
+  let profileIcon = 'none';
+  if (sessionUser.profileImageUrl === '') {
+    profileImg = 'none';
+    profileIcon = 'block';
+  }
+
+  // const [profileImg, setProfileImg] = useState('block');
+  // const [profileIcon, setProfileIcon] = useState('none');
+
+  // if (sessionUser.profileImageUrl === '') {
+  //   setProfileImg('none');
+  //   setProfileIcon('block');
+  // }
+
   return (
     <div>
       <button className={styles.profileButton} onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+        <img style={{display: profileImg}} className={styles.profileButtonImg} src={sessionUser.profileImageUrl} alt="userProfileCover"></img>
+        <i style={{display: profileIcon}} className="fas fa-user-circle" />
       </button>
       {showMenu && (
         <div className={styles.profileDropdownContainer}>

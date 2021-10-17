@@ -7,13 +7,11 @@ import LandingPage from "./components/LandingPage";
 import HomePage from "./components/HomePage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
-
 import MyAlbum from "./components/MyAlbum";
-import CreateAlbumForm from "./components/CreateAlbumForm";
+// import CreateAlbumForm from "./components/CreateAlbumForm";
 import SelectedAlbum from "./components/SelectedAlbum";
-import EditAlbumForm from "./components/EditAlbumForm";
-
-import CreateImageForm from "./components/CreateImageForm";
+// import EditAlbumForm from "./components/EditAlbumForm";
+// import CreateImageForm from "./components/CreateImageForm";
 import SelectedImage from "./components/SelectedImage";
 import PageNotFound from "./components/PageNotFound";
 import * as sessionActions from "./store/session";
@@ -26,7 +24,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(sessionActions.restoreUser()).then(() => {setIsLoaded(true)});
   }, [dispatch]);
 
   return (
@@ -46,18 +44,18 @@ function App() {
           <Route path="/myAlbums">
             {sessionUser ? (<MyAlbum />) : (<Redirect to="/login" />)}
           </Route>
-          <Route path="/createAlbum">
+          {/* <Route path="/createAlbum">
             {sessionUser ? (<CreateAlbumForm />) : (<Redirect to="/login" />)}
-          </Route>
+          </Route> */}
           <Route exact path="/albums/:albumId">
             {sessionUser ? (<SelectedAlbum />) : (<Redirect to="/login" />)}
           </Route>
-          <Route path="/albums/:albumId/edit">
+          {/* <Route path="/albums/:albumId/edit">
             {sessionUser ? (<EditAlbumForm />) : (<Redirect to="/login" />)}
           </Route>
           <Route path="/createImage/:albumId">
             {sessionUser ? (<CreateImageForm />) : (<Redirect to="/login" />)}
-          </Route>
+          </Route> */}
           <Route path="/images/:imageId">
             {sessionUser ? (<SelectedImage />) : (<Redirect to="/login" />)}
           </Route>

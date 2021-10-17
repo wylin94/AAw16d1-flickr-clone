@@ -29,12 +29,19 @@ function LandingPage() {
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage24.jpeg",
   ]
 
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(Math.floor(Math.random() * images.length));
+  // const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       if (index === images.length - 1) {setIndex(0)} else {setIndex(index + 1)}
-    }, 5000)
+
+      let nextRandom = Math.floor(Math.random() * images.length);
+      while (nextRandom === index) {
+        nextRandom = Math.floor(Math.random() * images.length);
+      }
+      setIndex(nextRandom);
+    }, 5500)
     return () => {clearTimeout(timer)}
   }, [index, images.length])
 
