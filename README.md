@@ -50,7 +50,7 @@ AJAX
 Heroku (for hosting services)
 Material UI Icons (Font Awesome)
 
-### Future Implementations
+## Future Implementations
 Comments
 Search albums and photos
 Follows
