@@ -104,7 +104,7 @@
   padding: 0;
 }
 
-.addImage:hover, .editAlbum:hover, .deleteAlbum:hover {
+.goBack:hover, .addImage:hover, .editAlbum:hover, .deleteAlbum:hover {
   color: rgb(159, 159, 159);
   cursor: pointer;
 }

@@ -54,6 +54,11 @@
   padding: 0;
 }
 
+.backIcon:hover {
+  color: rgb(159, 159, 159);
+  cursor: pointer;
+}
+
 .addAlbum {
   border: none;
   background-color: transparent;
