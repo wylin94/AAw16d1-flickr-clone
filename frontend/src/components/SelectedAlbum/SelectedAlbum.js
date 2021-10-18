@@ -71,7 +71,7 @@ function SelectedAlbum() {
       <div id='imageNav' className={styles.albumNavContainer}>
         <div className={styles.albumNav}>
           <div className={styles.navLeft}> 
-            <NavLink title='Back' className={styles.addImage} to={`/`}>
+            <NavLink title='Back' className={styles.goBack} to={`/`}>
               <i class="fas fa-arrow-left"></i>
             </NavLink>
             <h2 className={styles.title}>{currentAlbum?.title}</h2>

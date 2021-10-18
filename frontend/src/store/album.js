@@ -64,7 +64,7 @@ export const editAlbum = (album) => async dispatch => {
   })
   if (res.ok) {
     const edit = await res.json();
-    console.log('return from database', edit)
+    // console.log('return from database', edit)
     dispatch(toEdit(edit));
     return edit;
   }
@@ -96,17 +96,16 @@ const albumReducer = (state = [], action) => {
       newAlbum.unshift(action.album);
       return newAlbum;
     }
+    // BUGS NEED TO RESOLVE, OLD STATE IS ALREADY UPDATED BEFORE REDUCER CHANGE THE STATE WITH ACTION
     case EDIT: {
       const newAlbum = [...state]
       console.log('old state', newAlbum)
       let index;
-      
       // newAlbum.forEach(ele => {
-        // if (ele.id === action.album.id) {
-          // ele.coverImageUrl = action.album.coverImageUrl;
-          // ele.title = action.album.title;
-
-        // }
+      //   if (ele.id === action.album.id) {
+      //     ele.coverImageUrl = action.album.coverImageUrl;
+      //     ele.title = action.album.title;
+      //   }
       // });
       for (let i = 0; i < newAlbum.length; i++) {
         if (newAlbum[i].id === action.album.id) {
@@ -116,9 +115,7 @@ const albumReducer = (state = [], action) => {
           break;
         }
       }
-
       newAlbum.splice(index, 1, action.album)
-
       console.log('new state', newAlbum)
       return newAlbum;
     }

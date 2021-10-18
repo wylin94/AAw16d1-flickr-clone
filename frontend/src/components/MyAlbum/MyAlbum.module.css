@@ -39,11 +39,19 @@
   color: white;
 }
 
-.homePageAlbumContainer {
-  background-color: white;
+.albumNavContainer {
+  display: flex;
+  justify-content: space-between;
   width: 80%;
-  margin: 40px auto;
-  padding: 15px;
+  margin: 20px 0px;
+}
+
+.backIcon {
+  border: none;
+  background-color: transparent;
+  color: grey;
+  font-size: 20px;
+  padding: 0;
 }
 
 .addAlbum {
@@ -54,23 +62,63 @@
   padding: 0;
 }
 
+.myAlbumAlbumContainer {
+  width: 100%;
+  /* margin: 50px auto; */
+  /* padding: 15px; */
+}
+
 .albums {
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 30px;
 }
 
 .album {
-  width: 350px;
+  width: 100vw;
   height: auto;
-  margin: 10px;
 }
 
-.albumCover {
+@media screen and (min-width: 768px) {
+  .album {
+    width: calc(45%);
+  }
+  .myAlbumAlbumContainer {
+    width: 80%;
+  }
+  .albumCover {
+    max-width: 100%;
+    height: auto
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .album {
+    width: calc(30%);
+    /* width: 350px; */
+  }
+  .myAlbumAlbumContainer {
+    width: 80%;
+  }
+  .albumCover {
+    max-width: 100%;
+    height: auto
+  }
+}
+@media screen and (max-width: 767px) {
+  .albumCover {
+    min-width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+/* .albumCover {
   max-width: 100%;
   height: auto;
-}
+} */
 
 .albumCover:hover {
   opacity: 0.8;

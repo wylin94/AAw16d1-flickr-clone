@@ -12,9 +12,21 @@
 .SelectedImageButtonContainer {
   display: flex;
   justify-content: space-between;
-  width: 100vw;
+  width: 80%;
   margin: 20px 0px;
-  padding: 0px 20px;
+}
+
+.backIcon, .deleteImage {
+  border: none;
+  background-color: transparent;
+  color: grey;
+  font-size: 20px;
+  padding: 0;
+}
+
+.backIcon:hover, .deleteImage:hover {
+  color: rgb(159, 159, 159);
+  cursor: pointer;
 }
 
 .imageContainer {

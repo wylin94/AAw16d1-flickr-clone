@@ -96,7 +96,7 @@
   margin: 0px 5px;
 }
 
-.addImage, .editAlbum, .deleteAlbum {
+.goBack, .addImage, .editAlbum, .deleteAlbum {
   border: none;
   background-color: transparent;
   color: grey;

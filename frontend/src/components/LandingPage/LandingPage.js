@@ -3,6 +3,30 @@ import { useEffect, useState } from 'react';
 
 function LandingPage() {
   const images = [
+    // "../../images/LandingPage/landingPage1.jpeg",
+    // "../../images/LandingPage/landingPage2.jpeg",
+    // "../../images/LandingPage/landingPage3.jpeg",
+    // "../../images/LandingPage/landingPage4.jpeg",
+    // "../../images/LandingPage/landingPage5.jpeg",
+    // "../../images/LandingPage/landingPage6.jpg",
+    // "../../images/LandingPage/landingPage7.jpeg",
+    // "../../images/LandingPage/landingPage8.jpeg",
+    // "../../images/LandingPage/landingPage9.jpeg",
+    // "../../images/LandingPage/landingPage10.jpeg",
+    // "../../images/LandingPage/landingPage11.jpeg",
+    // "../../images/LandingPage/landingPage12.jpg",
+    // "../../images/LandingPage/landingPage13.jpeg",
+    // "../../images/LandingPage/landingPage14.jpeg",
+    // "../../images/LandingPage/landingPage15.jpeg",
+    // "../../images/LandingPage/landingPage16.jpeg",
+    // "../../images/LandingPage/landingPage17.jpeg",
+    // "../../images/LandingPage/landingPage18.jpeg",
+    // "../../images/LandingPage/landingPage19.jpeg",
+    // "../../images/LandingPage/landingPage20.jpeg",
+    // "../../images/LandingPage/landingPage21.jpeg",
+    // "../../images/LandingPage/landingPage22.jpeg",
+    // "../../images/LandingPage/landingPage23.jpg",
+    // "../../images/LandingPage/landingPage24.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage1.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage2.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage3.jpeg",
@@ -30,12 +54,10 @@ function LandingPage() {
   ]
 
   const [index, setIndex] = useState(Math.floor(Math.random() * images.length));
-  // const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (index === images.length - 1) {setIndex(0)} else {setIndex(index + 1)}
-
+      // if (index === images.length - 1) {setIndex(0)} else {setIndex(index + 1)}
       let nextRandom = Math.floor(Math.random() * images.length);
       while (nextRandom === index) {
         nextRandom = Math.floor(Math.random() * images.length);

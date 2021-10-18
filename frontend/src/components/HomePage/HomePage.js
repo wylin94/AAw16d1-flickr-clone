@@ -18,7 +18,7 @@ function HomePage() {
   return (
     <div className={styles.homePageContainer}>
       <div className={styles.homePageAlbumContainer}>
-        <h1>Explore</h1>
+        {/* <div className={styles.explore}>Explore</div> */}
         <div className={styles.albums}>
           {albums.map(album => {
             return (
