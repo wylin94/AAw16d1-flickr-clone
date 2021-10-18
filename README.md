@@ -32,8 +32,8 @@ Before you begin, please check the following Wiki documents:
     DB_HOST=localhost
     ```
 
-### Technologies used:
-## Backend:
+## Technologies used:
+### Backend:
 PostgreSQL
 express.js
 JavaScript
@@ -41,7 +41,7 @@ csrfProtection
 Sequelize
 Express-Sessions
 
-## Frontend:
+### Frontend:
 React
 React-Redux
 HTML
@@ -50,7 +50,7 @@ AJAX
 Heroku (for hosting services)
 Material UI Icons (Font Awesome)
 
-## Future Implementations
+### Future Implementations
 Comments
 Search albums and photos
 Follows
