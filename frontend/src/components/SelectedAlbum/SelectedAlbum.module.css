@@ -114,6 +114,7 @@
   columns: 1;
   column-gap: 3px;
   /* padding: 15px 15px; */
+  /* display: flex; */
 }
 
 @media screen and (min-width: 768px) {
@@ -124,6 +125,12 @@
 }
 @media screen and (min-width: 1440px) {
   .imageContainer {columns: 4;}
+}
+
+.noImage {
+  color: grey;
+  width: 80%;
+  text-align: center;
 }
 
 .imageWrapper {

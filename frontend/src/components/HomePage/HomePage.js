@@ -31,7 +31,9 @@ function HomePage() {
                     <img className={styles.profilePicture} src={album.User.profileImageUrl} alt="userProfileCover"></img>
                   </div>
                   <div>
-                    <div className={styles.albumUsername}>{album.User.username}</div>
+                    <NavLink className={styles.albumUsernameAnchor} to={`/users/${album.userId}/myAlbums`}>
+                      <div className={styles.albumUsername}>{album.User.username}</div>
+                    </NavLink>
                     <div className={styles.albumTitle}>{album.title}</div>
                   </div>
                 </div>

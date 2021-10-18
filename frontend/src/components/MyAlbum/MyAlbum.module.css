@@ -76,6 +76,10 @@
   gap: 30px;
 }
 
+.noAlbum {
+  color: grey;
+}
+
 .album {
   width: 100vw;
   height: auto;

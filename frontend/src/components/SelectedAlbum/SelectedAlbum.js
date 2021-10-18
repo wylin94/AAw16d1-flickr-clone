@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 import styles from './SelectedAlbum.module.css';
-import { getAlbum, deleteAlbum } from "../../store/album";
+import { getAlbum, deleteAlbum, getMyAlbum } from "../../store/album";
 import { getImage } from "../../store/image";
 import CreateImageFormModal from '../CreateImageFormModal';
 import EditAlbumFormModal from '../EditAlbumFormModal';
@@ -23,7 +23,7 @@ function SelectedAlbum() {
     e.preventDefault();
     const toRemove = await dispatch(deleteAlbum(albumId));
     if (toRemove) {
-      history.push('/myAlbums')
+      history.push(`/users/${currentAlbum.userId}/myAlbums`)
     }
   }
 
@@ -40,6 +40,10 @@ function SelectedAlbum() {
   useEffect(() => {
     dispatch(getAlbum());
   }, [dispatch])
+
+  useEffect(() => {
+    dispatch(getMyAlbum(currentAlbum[0]?.User.id));
+  }, [dispatch, currentAlbum])
 
   useEffect(() => {
     dispatch(getImage(albumId));
@@ -81,12 +85,12 @@ function SelectedAlbum() {
               <NavLink title="Add Image"className={styles.addImage} to={`/createImage/${albumId}`}>
                 <i class="fas fa-camera"></i>
               </NavLink>} */}
-            <CreateImageFormModal />
+            {sessionUser.id === currentAlbum?.userId && <CreateImageFormModal />}
             {/* {sessionUser.id === currentAlbum.userId && 
               <NavLink title="Edit Album" className={styles.editAlbum} to={`/albums/${albumId}/edit`}>
                 <i class="fas fa-edit"></i>
               </NavLink>} */}
-            <EditAlbumFormModal />
+            {sessionUser.id === currentAlbum?.userId && <EditAlbumFormModal />}
             {sessionUser.id === currentAlbum?.userId && 
               <button title="Delete Album" className={styles.deleteAlbum} onClick={handleDeleteClick}>
                 <i class="fas fa-trash-alt"></i>
@@ -95,8 +99,9 @@ function SelectedAlbum() {
         </div>
       </div>
 
+      {currentAlbumImages.length === 0 && <div className={styles.noImage}>You don't have any photos yet.</div>}
       <div id='scrollToImageContainer' className={styles.imageContainer}>
-        {currentAlbumImages.map(image => {
+        {currentAlbumImages.length > 0 && currentAlbumImages.map(image => {
           return (
               <NavLink className={styles.aTag} key={image.id} to={`/images/${image.id}`}>
                 <div className={styles.imageWrapper}>

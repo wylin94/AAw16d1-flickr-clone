@@ -3,15 +3,15 @@ import { useEffect, useState } from 'react';
 
 function LandingPage() {
   const images = [
-    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage1.jpeg",
+    // "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage1.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage2.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage3.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage4.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage5.jpeg",
-    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage6.jpg",
+    // "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage6.jpg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage7.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage8.jpeg",
-    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage9.jpeg",
+    // "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage9.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage10.jpg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage11.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage12.jpg",
@@ -25,7 +25,7 @@ function LandingPage() {
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage20.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage21.jpeg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage22.jpeg",
-    "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage23.jpg",
+    // "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage23.jpg",
     "https://veilr.s3.us-west-1.amazonaws.com/Landing+Page/landingPage24.jpeg",
   ]
 

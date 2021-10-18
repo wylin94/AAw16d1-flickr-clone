@@ -41,7 +41,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/myAlbums">
+          <Route path="/users/:userId/myAlbums">
             {sessionUser ? (<MyAlbum />) : (<Redirect to="/login" />)}
           </Route>
           {/* <Route path="/createAlbum">

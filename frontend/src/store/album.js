@@ -99,7 +99,7 @@ const albumReducer = (state = [], action) => {
     // BUGS NEED TO RESOLVE, OLD STATE IS ALREADY UPDATED BEFORE REDUCER CHANGE THE STATE WITH ACTION
     case EDIT: {
       const newAlbum = [...state]
-      console.log('old state', newAlbum)
+      // console.log('old state', newAlbum)
       let index;
       // newAlbum.forEach(ele => {
       //   if (ele.id === action.album.id) {
@@ -116,7 +116,7 @@ const albumReducer = (state = [], action) => {
         }
       }
       newAlbum.splice(index, 1, action.album)
-      console.log('new state', newAlbum)
+      // console.log('new state', newAlbum)
       return newAlbum;
     }
     case DELETEALBUM: {

@@ -45,6 +45,8 @@ export const signup = (user) => async (dispatch) => {
       username,
       email,
       password,
+      profileImageUrl: 'https://veilr.s3.us-west-1.amazonaws.com/Profile+/ProfilePictureDefault.jpeg',
+      coverImageUrl : 'https://veilr.s3.us-west-1.amazonaws.com/Profile+/CoverDefault.jpeg',
     }),
   });
   const data = await response.json();
