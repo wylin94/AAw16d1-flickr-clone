@@ -67,7 +67,7 @@ function LoginFormPage() {
         </div>
       </div>
       <div className={styles.landingPageFooter}>
-        <div className={styles.footerLeft}>© 2021 Veilr. No rights reserved.</div>
+        <div className={styles.footerLeft}>© 2021 Veilr. All rights reserved.</div>
         <div className={styles.footerRight}>
           <span>About the Developer</span>
           <a href='https://www.linkedin.com/in/wylin94/' className={styles.linkedinIcon}>

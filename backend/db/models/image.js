@@ -18,9 +18,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   }, {});
+
   Image.associate = function(models) {
     Image.belongsTo(models.User, { foreignKey: 'userId' });
     Image.belongsTo(models.Album, { foreignKey: 'albumId' });
   };
+  
   return Image;
 };
