@@ -6,10 +6,11 @@ Veilr, a Flickr clone, is a social media application that allows professional ph
 The name Veilr, comes from the word veil, a piece of fabric worn by bride to conceal the face. And the goal of my website is to help the user to remove and reveal any mystery behind the wedding photography industry.
 
 ### Splash Page View
-![]()
+![](https://github.com/wylin94/AAw16d1-flickr-clone/blob/main/frontend/public/images/README-1.gif?raw=true)
 
-### Profile Page View
-![]()
+### Album Page View
+![](https://github.com/wylin94/AAw16d1-flickr-clone/blob/main/frontend/public/images/README-2.gif?raw=true)
+
 
 ## Prerequisites
 Before you begin, please check the following Wiki documents:
