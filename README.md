@@ -20,19 +20,19 @@ Before you begin, please check the following Wiki documents:
 
 ## Technologies used:
 ### Backend:
-express.js
-JavaScript
-PostgreSQL
-Sequelize
-csrfProtection
-Express-Sessions
+* Express.js
+* JavaScript
+* PostgreSQL
+* Sequelize
+* csrfProtection
+* Express-Sessions
 ### Frontend:
-React
-React-Redux
-HTML
-Vanilla CSS
-AJAX
-Heroku
+* React
+* React-Redux
+* HTML
+* Vanilla CSS
+* AJAX
+* Heroku
 
 
 ## Future Implementations
