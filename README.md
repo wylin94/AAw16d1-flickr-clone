@@ -36,10 +36,10 @@ Before you begin, please check the following Wiki documents:
 
 
 ## Future Implementations
-Comments
-Search albums and photos
-Follows
-AWS Upload
+* Comments
+* Search albums and photos
+* Follows
+* AWS Upload
 
 
 ## Veilr Developer
