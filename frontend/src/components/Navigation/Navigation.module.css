@@ -61,6 +61,8 @@
   border-radius: 4px;
   padding: 5px 19px;
   background-color: white;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .landingSignup:hover {
@@ -144,7 +146,7 @@
   color: white;
 }
 
-.homepageLinkedinIcon, .homepageGithubIcon {
+.homepageLinkedinIcon, .homepageGithubIcon, .homepagePortfolioIcon {
   font-size: 30px;
 }
 
@@ -154,7 +156,7 @@
   cursor: pointer;
 }
 
-.homepageGithubIcon:hover {
+.homepageGithubIcon:hover, .homepagePortfolioIcon:hover {
   color: rgb(255, 0, 132);
   transform: scale(1.2);
   cursor: pointer;

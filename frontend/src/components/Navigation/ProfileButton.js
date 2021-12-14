@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router";
+import { NavLink } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
 import styles from './ProfileButton.module.css';
@@ -59,7 +60,7 @@ function ProfileButton({ user }) {
       {showMenu && (
         <div className={styles.profileDropdownContainer}>
           <ul className={styles.profileDropdown}>
-            <li className={styles.profileDropdownName}>{user.username}</li>
+            <li className={styles.profileDropdownName}>Hello, <NavLink className={styles.profileDropdownNameLink}to={`/users/${sessionUser.id}/myAlbums`}>{user.username}</NavLink>!</li>
             <li className={styles.profileDropdownEmail}>{user.email}</li>
             <li>
               <button className={styles.profileDropdownLogout} onClick={logout}>Log Out</button>

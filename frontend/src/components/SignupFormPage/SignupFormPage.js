@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+
+import Footer from "../Footer";
 import * as sessionActions from "../../store/session";
 import styles from './SignupForm.module.css';
 
@@ -90,18 +92,7 @@ function SignupFormPage() {
           Already a Veilr member? <a className={styles.notMemberSignup} href="/login">Log in here.</a>
         </div>
       </div>
-      <div className={styles.landingPageFooter}>
-        <div className={styles.footerLeft}>© 2021 Veilr. All rights reserved.</div>
-        <div className={styles.footerRight}>
-          <span>About the Developer</span>
-          <a href='https://www.linkedin.com/in/wylin94/' className={styles.linkedinIcon}>
-              <i className="fab fa-linkedin-in"></i>
-          </a>
-          <a href='https://github.com/wylin94' className={styles.githubIcon}>
-              <i className="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }
