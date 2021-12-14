@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import Footer from "../Footer";
 import * as sessionActions from '../../store/session';
-import styles from './LoginForm.module.css';
+import './LoginForm.css';
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -33,13 +33,13 @@ function LoginFormPage() {
   }
 
   return (
-    <div className={styles.loginPage}>
-      <div className={styles.loginContainer}>
-        <img src={'/images/veilr-logo.png'} alt="Veilr Logo" className={styles.logoImage}></img>
-        <h6 className={styles.loginTitle}>Log in to Veilr</h6>
-        <form className={styles.loginForm} onSubmit={handleSubmit}>
+    <div className='loginPage'>
+      <div className='loginContainer'>
+        <img src={'/images/veilr-logo.png'} alt="Veilr Logo" className='logoImage'></img>
+        <h6 className='loginTitle'>Log in to Veilr</h6>
+        <form className='loginForm' onSubmit={handleSubmit}>
           <ul>
-            {errors.map((error, idx) => <li className={styles.loginError} key={idx}>{error}</li>)}
+            {errors.map((error, idx) => <li className='loginError' key={idx}>{error}</li>)}
           </ul>
           <div>
             <label>Username or Email</label>
@@ -61,11 +61,11 @@ function LoginFormPage() {
           </div>
           <button type="submit">Log In</button>
         </form>
-        <form className={styles.demoForm} onSubmit={handleDemoSubmit}>
+        <form className='demoForm' onSubmit={handleDemoSubmit}>
           <button type="submit">Demo</button>
         </form>
-        <div className={styles.notMember}>
-          Not a Veilr member? <a className={styles.notMemberSignup} href="/signup">Sign up here.</a>
+        <div className='notMember'>
+          Not a Veilr member? <a className='notMemberSignup' href="/signup">Sign up here.</a>
         </div>
       </div>
       <Footer />

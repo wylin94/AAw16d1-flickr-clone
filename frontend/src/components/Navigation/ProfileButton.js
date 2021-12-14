@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import { NavLink } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
-import styles from './ProfileButton.module.css';
+import './ProfileButton.css';
 
 
 function ProfileButton({ user }) {
@@ -54,20 +54,24 @@ function ProfileButton({ user }) {
 
   return (
     <div>
-      <button className={styles.profileButton} onClick={openMenu}>
-        <img style={{display: profileImg}} className={styles.profileButtonImg} src={sessionUser.profileImageUrl} alt="userProfileCover"></img>
+      <button className='profileButton' onClick={openMenu}>
+        <img style={{display: profileImg}} className='profileButtonImg' src={sessionUser.profileImageUrl} alt="userProfileCover"></img>
         {/* <i style={{display: profileIcon}} className="fas fa-user-circle" /> */}
       </button>
       {showMenu && (
-        <div className={styles.profileDropdownContainer}>
-          <ul className={styles.profileDropdown}>
-            <div className={styles.profileDropdownUser} id='preventBubble'>
-              <li className={styles.profileDropdownName}>Hello, <NavLink className={styles.profileDropdownNameLink}to={`/users/${sessionUser.id}/myAlbums`}>{user.username}</NavLink>!</li>
-              <li className={styles.profileDropdownEmail}>{user.email}</li>
+        <div className='profileDropdownContainer'>
+          <ul className='profileDropdown'>
+            <div className='profileDropdownUser' id='preventBubble'>
+              <li className='profileDropdownName'>Hello, <NavLink className='profileDropdownNameLink'to={`/users/${sessionUser.id}/myAlbums`}>{user.username}</NavLink>!</li>
+              <li className='profileDropdownEmail'>{user.email}</li>
             </div>
-            <li>
-              <button className={styles.profileDropdownLogout} onClick={logout}>Log Out</button>
-            </li>
+            <div className='profileDropdownLinkContainer'>
+              <NavLink className='profileDropdownLink' to={`/users/${sessionUser.id}/myAlbums`}>You</NavLink>
+              <a className='profileDropdownLink' href='https://wylin94.github.io/'>About the Developer</a>
+              <a className='profileDropdownLink' href='https://www.linkedin.com/in/wylin94/'>LinkedIn</a>
+              <a className='profileDropdownLink' href='https://github.com/wylin94'>Github</a>
+              <div className='profileDropdownLink' onClick={logout}>Log Out</div>
+            </div>
           </ul>
         </div>
       )}

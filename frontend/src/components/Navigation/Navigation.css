@@ -125,6 +125,7 @@
   text-decoration: none;
   font-size: 29px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .you, .explore {
@@ -136,22 +137,23 @@
   color: rgb(170, 170, 170);
 }
 
-.active {
-  border: 5px solid white;
-}
-
 .homepageNavRight {
   display: flex;
   justify-content: center;
   gap: 25px;
   color: white;
 }
+/* 
+#testtest {
+  background-color: yellow;
+} */
 
 .homepageNavSearchBarContainer {
+  position: relative;
   display: flex;
   justify-content: flex-end;
   position: relative;
-  width: 360px;
+  width: 220px;
 }
 
 .homepageSearchIcon {
@@ -177,20 +179,68 @@
   background-color: white;
 }
 
+#searchInput {
+  border-radius: 3px 3px 0px 0px;
+}
+
+.homepageNavSearchBarResultContainer {
+  display: flex;
+	flex-direction: column;
+	position: absolute;
+  width: 220px;
+  height: auto;
+  top: 33px;
+  left: 0px;
+  background-color: white;
+  border-radius: 0px 0px 3px 3px;
+  box-shadow: 0px 0px 30px 1px rgb(0, 0, 0, 0.1);
+	clip-path: inset(0px -40px -40px -40px);
+}
+
+.albumUsernameAnchor {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border-top: 1px solid rgb(211, 211, 211);
+  padding: 10px 35px;
+}
+
+.albumUsernameAnchor:hover {
+  background-color: rgb(244, 244, 244);
+  cursor: pointer;
+}
+
+.homepageNavSearchBarResultUsername {
+  color: black;
+}
+
+.homepageNavSearchBarResultTitle {
+  color: grey;
+}
+
+
+
+
+
 .homepageLinkedinIcon, .homepageGithubIcon, .homepagePortfolioIcon {
   display: flex;
   align-items: center;
   font-size: 30px;
 }
 
-.homepageLinkedinIcon:hover {
-  color: rgb(0, 99, 220);
-  /* transform: scale(1.2); */
+
+.homepagePortfolioIcon:hover, .homepageLinkedinIcon:hover, .homepageGithubIcon:hover {
+  color: rgb(181, 181, 181);
   cursor: pointer;
 }
 
-.homepageGithubIcon:hover, .homepagePortfolioIcon:hover {
-  color: rgb(255, 0, 132);
-  /* transform: scale(1.2); */
-  cursor: pointer;
+@media screen and (max-width: 767px) {
+  .you, .homepageLinkedinIcon, .homepageGithubIcon, .homepagePortfolioIcon {
+    display: none;
+  }
+
+  .homepageNavSearchBarContainer {
+    max-width: 430px;
+    min-width: 220px;
+  }
 }

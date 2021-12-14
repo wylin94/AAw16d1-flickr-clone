@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 import { Modal } from '../../context/Modal';
 import CreateAlbumForm from './CreateAlbumForm';
-import styles from "./index.module.css"
+import "./index.css"
 
 function CreateAlbumFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button title="Create Album" className={styles.createAlbumButton} onClick={() => setShowModal(true)}>
+      <button title="Create Album" className='createAlbumButton' onClick={() => setShowModal(true)}>
         <i class="fas fa-folder-plus"></i>
       </button>
       {showModal && (

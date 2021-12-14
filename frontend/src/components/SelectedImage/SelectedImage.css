@@ -5,7 +5,7 @@
   margin-top: 50px;
 }
 
-.imageContainer {
+.selectedImageContainer {
 
 }
 
@@ -16,7 +16,7 @@
   margin: 20px 0px;
 }
 
-.backIcon, .deleteImage {
+.selectedImageBackIcon, .selectedImageDeleteImage {
   border: none;
   background-color: transparent;
   color: grey;
@@ -24,16 +24,16 @@
   padding: 0;
 }
 
-.backIcon:hover, .deleteImage:hover {
+.selectedImageBackIcon:hover, .selectedImageDeleteImage:hover {
   color: rgb(159, 159, 159);
   cursor: pointer;
 }
 
-.imageContainer {
+.selectedImageImageContainer {
   display: flex;
 }
 
-.image {
+.selectedImageImage {
   max-width: 100vw;
   max-height: 75vh;
 }

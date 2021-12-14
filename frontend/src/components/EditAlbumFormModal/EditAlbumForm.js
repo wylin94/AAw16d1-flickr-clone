@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getMyAlbum, editAlbum } from '../../store/album';
-import styles from "./EditAlbumForm.module.css"
+import "./EditAlbumForm.css"
 
 function EditAlbumForm({onClose}) {
   const dispatch = useDispatch();
@@ -35,9 +35,9 @@ function EditAlbumForm({onClose}) {
   }, [albums, albumId])
 
   return (
-    <div className={styles.editAlbumFormContainer}>
-      <h2 className={styles.editAlbumFormTitle}>Edit Album</h2>
-      <form className={styles.editAlbumForm} onSubmit={handleEditSubmit}>
+    <div className='editAlbumFormContainer'>
+      <h2 className='editAlbumFormTitle'>Edit Album</h2>
+      <form className='editAlbumForm' onSubmit={handleEditSubmit}>
         <label>Album Cover Image URL</label>
         <input 
           type='text'

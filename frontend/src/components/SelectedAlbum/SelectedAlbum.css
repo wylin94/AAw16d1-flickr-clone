@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.albumCoverContainer {
+.selectedAlbumAlbumCoverContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +17,7 @@
   min-width: 100%;
 }
 
-.darken{
+.selectedAlbumDarken{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,13 +29,13 @@
   min-width: 100%;
 }
 
-.inCoverTitle {
+.selectedAlbumInCoverTitle {
   color: white;
   font-size: 55px;
   font-weight: 600;
 }
 
-.openScroll {
+.selectedAlbumOpenScroll {
   font-size: 20px;
   font-weight: bold;
   padding: 10px 15px;
@@ -47,12 +47,12 @@
   border-radius: 5px;
 }
 
-.openScroll:hover {
+.selectedAlbumOpenScroll:hover {
   color: rgb(160, 160, 160);
   cursor: pointer;
 }
 
-.openScroll:active {
+.selectedAlbumOpenScroll:active {
   border: 3px solid grey;
 }
 
@@ -60,7 +60,7 @@
   width: 500px;
 } */
 
-.albumNavContainer {
+.selectedAlbumAlbumNavContainer {
   position: sticky;
   top: 0px;
   z-index: 1;
@@ -73,29 +73,29 @@
 
 }
 
-.albumNav {
+.selectedAlbumAlbumNav {
   display: flex;
   justify-content: space-between;
   width: 80%;
 }
 
-.navLeft{
+.selectedAlbumNavLeft{
   display: flex;
   gap: 30px;
   margin: 0px 5px;
 }
 
-.title {
+.selectedAlbumTitle {
   font-size: 20px;
 }
 
-.navRight {
+.selectedAlbumNavRight {
   display: flex;
   gap: 30px;
   margin: 0px 5px;
 }
 
-.goBack, .addImage, .editAlbum, .deleteAlbum {
+.selectedAlbumGoBack, .selectedAlbumDeleteAlbum {
   border: none;
   background-color: transparent;
   color: grey;
@@ -103,12 +103,12 @@
   padding: 0;
 }
 
-.goBack:hover, .addImage:hover, .editAlbum:hover, .deleteAlbum:hover {
+.selectedAlbumGoBack:hover, .selectedAlbumDeleteAlbum:hover {
   color: rgb(159, 159, 159);
   cursor: pointer;
 }
 
-.imageContainer {
+.selectedAlbumImageContainer {
   width: 80%;
   columns: 1;
   column-gap: 3px;
@@ -117,41 +117,41 @@
 }
 
 @media screen and (min-width: 768px) {
-  .imageContainer {columns: 2;}
+  .selectedAlbumImageContainer {columns: 2;}
 }
 @media screen and (min-width: 1024px) {
-  .imageContainer {columns: 3;}
+  .selectedAlbumImageContainer {columns: 3;}
 }
 @media screen and (min-width: 1440px) {
-  .imageContainer {columns: 4;}
+  .selectedAlbumImageContainer {columns: 4;}
 }
 
-.noImage {
+.selectedAlbumNoImage {
   color: grey;
   width: 80%;
   text-align: center;
 }
 
-.imageWrapper {
+.selectedAlbumImageWrapper {
   margin-bottom: 3px;
 }
 
-.imageWrapper:hover {
+.selectedAlbumImageWrapper:hover {
   /* background-color: black; */
 }
 
-.image {
+.selectedAlbumImage {
   display: block;
   max-width: 100%;
   /* transition:transform 0.2s ease-in-out; */
 }
 
-.image:hover {
+.selectedAlbumImage:hover {
   opacity: 0.8;
   /* background-color: white; */
 }
 
-.backToTop {
+.selectedAlbumBackToTop {
   font-size: 20px;
   font-weight: bold;
   padding: 10px 15px;
@@ -163,11 +163,11 @@
   border-radius: 5px;
 }
 
-.backToTop:hover {
+.selectedAlbumBackToTop:hover {
   color: grey;
   cursor: pointer;
 }
 
-.backToTop:active {
+.selectedAlbumBackToTop:active {
   border: 3px solid grey;
 }

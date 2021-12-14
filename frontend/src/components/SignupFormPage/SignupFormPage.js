@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 
 import Footer from "../Footer";
 import * as sessionActions from "../../store/session";
-import styles from './SignupForm.module.css';
+import './SignupForm.css';
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -36,13 +36,13 @@ function SignupFormPage() {
   }
 
   return (
-    <div className={styles.loginPage}>
-      <div className={styles.loginContainer}>
-        <img src={'/images/veilr-logo.png'} alt="Veilr Logo" className={styles.logoImage}></img>
-        <h6 className={styles.loginTitle}>Sign up for Veilr</h6>
-        <form className={styles.loginForm} onSubmit={handleSubmit}>
+    <div className='loginPage'>
+      <div className='loginContainer'>
+        <img src={'/images/veilr-logo.png'} alt="Veilr Logo" className='loginLogoImage'></img>
+        <h6 className='loginTitle'>Sign up for Veilr</h6>
+        <form className='loginForm' onSubmit={handleSubmit}>
           <ul>
-            {errors.map((error, idx) => <li className={styles.loginError} key={idx}>{error}</li>)}
+            {errors.map((error, idx) => <li className='loginError' key={idx}>{error}</li>)}
           </ul>
           <div>
             <label>Email</label>
@@ -82,14 +82,14 @@ function SignupFormPage() {
           </div>
           <button type="submit">Sign Up</button>
         </form>
-        <form className={styles.demoForm} onSubmit={handleDemoSubmit}>
+        <form className='loginDemoForm' onSubmit={handleDemoSubmit}>
           <button type="submit">Demo</button>
         </form>
-        <div className={styles.agree}>
+        <div className='loginAgree'>
           By signing up, you agree with Veilr's Terms of Services<br/>and Privacy Policy, which we do not have at the moment.
         </div>
-        <div className={styles.notMember}>
-          Already a Veilr member? <a className={styles.notMemberSignup} href="/login">Log in here.</a>
+        <div className='loginNotMember'>
+          Already a Veilr member? <a className='loginNotMemberSignup' href="/login">Log in here.</a>
         </div>
       </div>
       <Footer />

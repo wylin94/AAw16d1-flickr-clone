@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
 
-import styles from './SelectedImage.module.css';
+import './SelectedImage.css';
 import { deleteImage } from "../../store/image";
 import { getAlbum } from '../../store/album';
 
@@ -33,23 +33,20 @@ function SelectedImage() {
   }, [dispatch])
 
   return (
-    <>
-      <div className={styles.selectedImageContainer}>
-        <div className={styles.SelectedImageButtonContainer}>
-          <NavLink title='Back' className={styles.backIcon} to={`/albums/${currentImage?.albumId}`}>
+      <div className='selectedImageContainer'>
+        <div className='SelectedImageButtonContainer'>
+          <NavLink title='Back' className='selectedImageBackIcon' to={`/albums/${currentImage?.albumId}`}>
             <i class="fas fa-arrow-left"></i>
           </NavLink>
           {sessionUser.id === currentImage?.userId && 
-            <button title="Delete Image" className={styles.deleteImage} onClick={handleDeleteClick}>
+            <button title="Delete Image" className='selectedImageDeleteImage' onClick={handleDeleteClick}>
               <i class="fas fa-trash-alt"></i>
             </button>}
         </div>
-        <div className={styles.imageContainer}>
-          <img className={styles.image} src={currentImage?.imageUrl} alt={currentImage?.description}></img>
+        <div className='selectedImageImageContainer'>
+          <img className='selectedImageImage' src={currentImage?.imageUrl} alt={currentImage?.description}></img>
         </div>
-        
       </div>
-    </>
   )
 }
 

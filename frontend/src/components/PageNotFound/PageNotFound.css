@@ -12,7 +12,7 @@
   min-width: 100%;
 }
 
-.darken{
+.pageNotFoundDarken{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,19 +23,19 @@
   min-width: 100%;
 }
 
-.error{
+.pageNotFoundError{
   color: white;
   font-size: 70px;
   font-weight: bold;
 }
 
-.comeBackHome {
+.pageNotFoundComeBackHome {
   color: white;
   font-size: 25px;
   font-weight: bold;
 }
 
-.homeButton {
+.pageNotFoundHomeButton {
   font-size: 20px;
   font-weight: bold;
   padding: 10px 15px;
@@ -47,11 +47,11 @@
   border-radius: 5px;
 }
 
-.homeButton:hover {
+.pageNotFoundHomeButton:hover {
   color: grey;
   cursor: pointer;
 }
 
-.homeButton:active {
+.pageNotFoundHomeButton:active {
   border: 3px solid grey;
 }

@@ -26,7 +26,7 @@
 .profileDropdown {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  /* gap: 15px; */
   position: relative;
   border: 1px solid rgb(176, 176, 176);
   border-radius: 5px;
@@ -66,10 +66,12 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  padding: 20px;
 }
 
 .profileDropdownName {
-  margin: 20px 0px 0px 20px;
+  /* margin: 20px 0px 0px 20px; */
   font-weight: 600;
   font-size: 18px;
 }
@@ -84,23 +86,20 @@
 }
 
 .profileDropdownEmail {
-  margin-left: 20px;
   color: #B3B3B3;
-
 }
 
-.profileDropdownLogout {
-  background-color: transparent;
-  border: none;
+.profileDropdownLinkContainer {
+  display: flex;
+  flex-direction: column;
   padding: 10px 0px;
-  border-top: 1px solid rgb(211, 211, 211);
-  width: 100%;
-  text-align: left;
-  text-indent: 20px;
-  color: #212124;
 }
 
-.profileDropdownLogout:hover {
+.profileDropdownLink{
+  padding: 5px 20px 5px 20px;
+}
+
+.profileDropdownLink:hover {
   background-color: rgb(244, 244, 244);
   cursor: pointer;
 }

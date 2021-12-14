@@ -22,7 +22,7 @@
   border-radius: 5px;
 }
 
-.logoImage {
+.loginLogoImage {
   width: 30px;
   margin: 19px 0px;
 }
@@ -63,7 +63,7 @@
   border: 1px solid grey;
 }
 
-.loginForm button, .demoForm button {
+.loginForm button, .loginDemoForm button {
   display: block;
   width: 300px;
   margin: auto;
@@ -76,27 +76,27 @@
   border-radius: 5px;
 }
 
-.loginForm button:hover, .demoForm button:hover {
+.loginForm button:hover, .loginDemoForm button:hover {
   background-color: #1598e9;
   cursor: pointer;
 }
 
-.loginForm button:active, .demoForm button:active {
+.loginForm button:active, .loginDemoForm button:active {
   background-color: #107fc4;
 }
 
-.demoForm button {
+.loginDemoForm button {
   margin: 10px 0px;
 }
 
-.agree {
+.loginAgree {
   font-size: 11px;
   color: rgb(155, 155, 155);
   text-align: center;
   margin: 8px 0;
 }
 
-.notMember {
+.loginNotMember {
   margin-top: 15px;
   font-size: 14px;
   color: rgb(85, 85, 85);
@@ -104,7 +104,7 @@
   padding: 20px 43px;
 }
 
-.notMemberSignup {
+.loginNotMemberSignup {
   font-size: 14px;
   text-decoration: none;
   color: #006DAC;

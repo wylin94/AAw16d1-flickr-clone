@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 import { Modal } from '../../context/Modal';
 import CreateImageForm from './CreateImageForm';
-import styles from "./index.module.css"
+import "./index.css"
 
 function CreateImageFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button title="Create Image" className={styles.addImageButton} onClick={() => setShowModal(true)}>
+      <button title="Create Image" className='addImageButton' onClick={() => setShowModal(true)}>
         <i class="fas fa-camera"></i>
       </button>
       {showModal && (

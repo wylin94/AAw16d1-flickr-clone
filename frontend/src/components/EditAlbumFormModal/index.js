@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 import { Modal } from '../../context/Modal';
 import EditAlbumForm from './EditAlbumForm';
-import styles from "./index.module.css"
+import "./index.css"
 
 function EditAlbumFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button title="Edit Album" className={styles.editAlbumButton} onClick={() => setShowModal(true)}>
+      <button title="Edit Album" className='editAlbumButton' onClick={() => setShowModal(true)}>
         <i class="fas fa-edit"></i>
       </button>
       {showModal && (

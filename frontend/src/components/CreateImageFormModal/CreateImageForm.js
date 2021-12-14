@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { useSelector, useDispatch } from "react-redux";
 
 import { createImage } from '../../store/image';
-import styles from "./CreateImageForm.module.css"
+import "./CreateImageForm.css"
 
 function CreateImageForm({onClose}) {
   const dispatch = useDispatch();
@@ -22,9 +22,9 @@ function CreateImageForm({onClose}) {
   }
 
   return (
-    <div className={styles.createImageFormContainer}>
-      <h2 className={styles.createImageFormTitle}>Create Image</h2>
-      <form className={styles.createImageForm} onSubmit={handleCreateSubmit}>
+    <div className='createImageFormContainer'>
+      <h2 className='createImageFormTitle'>Create Image</h2>
+      <form className='createImageForm' onSubmit={handleCreateSubmit}>
         <label>URL</label>
         <input 
           type='text'

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-import styles from './SelectedAlbum.module.css';
+import './SelectedAlbum.css';
 import { getAlbum, deleteAlbum, getMyAlbum } from "../../store/album";
 import { getImage } from "../../store/image";
 import CreateImageFormModal from '../CreateImageFormModal';
@@ -15,7 +15,7 @@ function SelectedAlbum() {
   const {albumId} = useParams();
   const currentAlbum = useSelector(state => state.album.find(ele => ele.id === +albumId));
   const sessionUser = useSelector(state => state.session.user);
-  const images = useSelector(state => state.image)
+  const images = useSelector(state => state.image);
 
   const [currentAlbumImages, setAlbumImages] = useState([]);
 
@@ -63,56 +63,52 @@ function SelectedAlbum() {
   // window.scrollTo(0, 0);
   
   return (
-    <div className={styles.selectedAlbumPage}>
-
-      <div className={styles.albumCoverContainer} style={{backgroundImage: `url(${currentAlbum?.coverImageUrl})`}}>
-        <div className={styles.darken}> 
-          <h1 className={styles.inCoverTitle}>{currentAlbum?.title.toUpperCase()}</h1>
-          <button className={styles.openScroll} onClick={handleOpenClick}>OPEN</button>
+    <div className='selectedAlbumPage'>
+      <div className='selectedAlbumAlbumCoverContainer' style={{backgroundImage: `url(${currentAlbum?.coverImageUrl})`}}>
+        <div className='selectedAlbumDarken'> 
+          <h1 className='selectedAlbumInCoverTitle'>{currentAlbum?.title.toUpperCase()}</h1>
+          <button className='selectedAlbumOpenScroll' onClick={handleOpenClick}>OPEN</button>
         </div>
       </div>
-
-      <div id='imageNav' className={styles.albumNavContainer}>
-        <div className={styles.albumNav}>
-          <div className={styles.navLeft}> 
-            <NavLink title='Back' className={styles.goBack} to={`/`}>
+      <div id='imageNav' className='selectedAlbumAlbumNavContainer'>
+        <div className='selectedAlbumAlbumNav'>
+          <div className='selectedAlbumNavLeft'> 
+            <NavLink title='Back' className='selectedAlbumGoBack' to={`/`}>
               <i class="fas fa-arrow-left"></i>
             </NavLink>
-            <h2 className={styles.title}>{currentAlbum?.title}</h2>
+            <h2 className='selectedAlbumTitle'>{currentAlbum?.title}</h2>
           </div>
-          <div className={styles.navRight}>
+          <div className='selectedAlbumNavRight'>
             {/* {sessionUser.id === currentAlbum.userId &&
-              <NavLink title="Add Image"className={styles.addImage} to={`/createImage/${albumId}`}>
+              <NavLink title="Add Image"className='addImage' to={`/createImage/${albumId}`}>
                 <i class="fas fa-camera"></i>
               </NavLink>} */}
             {sessionUser.id === currentAlbum?.userId && <CreateImageFormModal />}
             {/* {sessionUser.id === currentAlbum.userId && 
-              <NavLink title="Edit Album" className={styles.editAlbum} to={`/albums/${albumId}/edit`}>
+              <NavLink title="Edit Album" className='editAlbum' to={`/albums/${albumId}/edit`}>
                 <i class="fas fa-edit"></i>
               </NavLink>} */}
             {sessionUser.id === currentAlbum?.userId && <EditAlbumFormModal />}
             {sessionUser.id === currentAlbum?.userId && 
-              <button title="Delete Album" className={styles.deleteAlbum} onClick={handleDeleteClick}>
+              <button title="Delete Album" className='selectedAlbumDeleteAlbum' onClick={handleDeleteClick}>
                 <i class="fas fa-trash-alt"></i>
               </button>}
           </div>
         </div>
       </div>
-
-      {currentAlbumImages.length === 0 && <div className={styles.noImage}>You don't have any photos yet.</div>}
-      <div id='scrollToImageContainer' className={styles.imageContainer}>
+      {currentAlbumImages.length === 0 && <div className='selectedAlbumNoImage'>You don't have any photos yet.</div>}
+      <div id='scrollToImageContainer' className='selectedAlbumImageContainer'>
         {currentAlbumImages.length > 0 && currentAlbumImages.map(image => {
           return (
-              <NavLink className={styles.aTag} key={image.id} to={`/images/${image.id}`}>
-                <div className={styles.imageWrapper}>
-                  <img className={styles.image} src={image.imageUrl} alt={image.description}></img>
+              <NavLink className='selectedAlbumaTag' key={image.id} to={`/images/${image.id}`}>
+                <div className='selectedAlbumImageWrapper'>
+                  <img className='selectedAlbumImage' src={image.imageUrl} alt={image.description}></img>
                 </div>
               </NavLink>
           )
         })}
       </div>
-      
-      <button className={styles.backToTop} onClick={handleBackUpClick}>BACK TO TOP</button>
+      <button className='selectedAlbumBackToTop' onClick={handleBackUpClick}>BACK TO TOP</button>
     </div>
   )
 }

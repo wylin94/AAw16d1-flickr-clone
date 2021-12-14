@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { createAlbum } from '../../store/album';
-import styles from "./CreateAlbumForm.module.css"
+import "./CreateAlbumForm.css"
 
 function CreateAlbumForm({onClose}) {
   const dispatch = useDispatch();
@@ -19,9 +19,9 @@ function CreateAlbumForm({onClose}) {
   }
 
   return (
-    <div className={styles.createAlbumFormContainer}>
-      <h2 className={styles.createAlbumFormTitle}>Create Album</h2>
-      <form className={styles.createAlbumForm} onSubmit={handleCreateSubmit}>
+    <div className='createAlbumFormContainer'>
+      <h2 className='createAlbumFormTitle'>Create Album</h2>
+      <form className='createAlbumForm' onSubmit={handleCreateSubmit}>
         <label>Album Cover Image URL</label>
         <input 
           type='text'

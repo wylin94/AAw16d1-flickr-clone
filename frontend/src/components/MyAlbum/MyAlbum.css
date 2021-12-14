@@ -1,4 +1,4 @@
-.homePageContainer {
+.MyAlbumContainer {
   display: flex;
   justify-content: center;
   margin: 0px 0px;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.profileContainer {
+.MyAlbumProfileContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -19,7 +19,7 @@
   min-width: 100%;
 }
 
-.profileWrapper {
+.MyAlbumProfileWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -28,25 +28,25 @@
   gap: 30px;;
 }
 
-.profilePicture {
+.MyAlbumProfilePicture {
   width: 120px;
   height: 120px;
   border-radius: 100px;
 }
 
-.profileName {
+.MyAlbumProfileName {
   font-size: 30px;
   color: white;
 }
 
-.albumNavContainer {
+.MyAlbumNavContainer {
   display: flex;
   justify-content: space-between;
   width: 80%;
   margin: 20px 0px;
 }
 
-.backIcon {
+.MyAlbumBackIcon {
   border: none;
   background-color: transparent;
   color: grey;
@@ -54,17 +54,9 @@
   padding: 0;
 }
 
-.backIcon:hover {
+.MyAlbumBackIcon:hover {
   color: rgb(159, 159, 159);
   cursor: pointer;
-}
-
-.addAlbum {
-  border: none;
-  background-color: transparent;
-  color: grey;
-  font-size: 20px;
-  padding: 0;
 }
 
 .myAlbumAlbumContainer {
@@ -73,7 +65,7 @@
   /* padding: 15px; */
 }
 
-.albums {
+.myAlbumAlbums {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -81,59 +73,53 @@
   gap: 30px;
 }
 
-.noAlbum {
+.myAlbumNoAlbum {
   color: grey;
 }
 
-.album {
+.myAlbumAlbum {
   width: 100vw;
   height: auto;
 }
 
 @media screen and (min-width: 768px) {
-  .album {
+  .myAlbumAlbum {
     width: calc(45%);
   }
   .myAlbumAlbumContainer {
     width: 80%;
   }
-  .albumCover {
+  .myAlbumAlbumCover {
     max-width: 100%;
     height: auto
   }
 }
 
 @media screen and (min-width: 1300px) {
-  .album {
+  .myAlbumAlbum {
     width: calc(30%);
-    /* width: 350px; */
   }
   .myAlbumAlbumContainer {
     width: 80%;
   }
-  .albumCover {
+  .myAlbumAlbumCover {
     max-width: 100%;
     height: auto
   }
 }
 @media screen and (max-width: 767px) {
-  .albumCover {
+  .myAlbumAlbumCover {
     min-width: 100%;
     height: 300px;
     object-fit: cover;
   }
 }
 
-/* .albumCover {
-  max-width: 100%;
-  height: auto;
-} */
-
-.albumCover:hover {
+.myAlbumAlbumCover:hover {
   opacity: 0.8;
 }
 
-.albumInfo {
+.myAlbumAlbumInfo {
   display: flex;
   justify-content: center;
   margin: 20px;

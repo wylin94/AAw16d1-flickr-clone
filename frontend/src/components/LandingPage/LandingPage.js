@@ -1,4 +1,4 @@
-import styles from './LandingPage.module.css';
+import './LandingPage.css';
 import { useEffect, useState } from 'react';
 
 import Footer from "../Footer";
@@ -46,10 +46,10 @@ function LandingPage() {
   }, [index, images.length])
 
   return (
-    <div className={styles.landingPageContainer} style={{backgroundImage: 'url(' + images[index] + ')'}}>
-      <div className={styles.landingPageSlogan}>Find your inspiration.</div>
-      <p className={styles.landingPageDes}>Join the Veilr community, home to thousands of professional<br/> photographers and endless ideas.</p>
-      <a className={styles.starForFree} href="/signup">START</a>
+    <div className='landingPageContainer' style={{backgroundImage: 'url(' + images[index] + ')'}}>
+      <div className='landingPageSlogan'>Find your inspiration.</div>
+      <p className='landingPageDes'>Join the Veilr community, home to thousands of professional<br/> photographers and endless ideas.</p>
+      <a className='starForFree' href="/signup">START</a>
       <Footer />
     </div>
   )
