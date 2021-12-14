@@ -20,13 +20,14 @@ function ProfileButton({ user }) {
   
   useEffect(() => {
     if (!showMenu) return;
-
     const closeMenu = () => {
       setShowMenu(false);
     };
-
     document.addEventListener('click', closeMenu);
-  
+    const preventBubble = document.getElementById('preventBubble')
+    preventBubble.addEventListener('click', (e) => {
+      e.stopPropagation();
+    })
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
@@ -37,10 +38,10 @@ function ProfileButton({ user }) {
   };
 
   let profileImg = 'block';
-  let profileIcon = 'none';
+  // let profileIcon = 'none';
   if (sessionUser.profileImageUrl === '') {
     profileImg = 'none';
-    profileIcon = 'block';
+    // profileIcon = 'block';
   }
 
   // const [profileImg, setProfileImg] = useState('block');
@@ -55,13 +56,15 @@ function ProfileButton({ user }) {
     <div>
       <button className={styles.profileButton} onClick={openMenu}>
         <img style={{display: profileImg}} className={styles.profileButtonImg} src={sessionUser.profileImageUrl} alt="userProfileCover"></img>
-        <i style={{display: profileIcon}} className="fas fa-user-circle" />
+        {/* <i style={{display: profileIcon}} className="fas fa-user-circle" /> */}
       </button>
       {showMenu && (
         <div className={styles.profileDropdownContainer}>
           <ul className={styles.profileDropdown}>
-            <li className={styles.profileDropdownName}>Hello, <NavLink className={styles.profileDropdownNameLink}to={`/users/${sessionUser.id}/myAlbums`}>{user.username}</NavLink>!</li>
-            <li className={styles.profileDropdownEmail}>{user.email}</li>
+            <div className={styles.profileDropdownUser} id='preventBubble'>
+              <li className={styles.profileDropdownName}>Hello, <NavLink className={styles.profileDropdownNameLink}to={`/users/${sessionUser.id}/myAlbums`}>{user.username}</NavLink>!</li>
+              <li className={styles.profileDropdownEmail}>{user.email}</li>
+            </div>
             <li>
               <button className={styles.profileDropdownLogout} onClick={logout}>Log Out</button>
             </li>

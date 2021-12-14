@@ -142,22 +142,55 @@
 
 .homepageNavRight {
   display: flex;
+  justify-content: center;
   gap: 25px;
   color: white;
 }
 
+.homepageNavSearchBarContainer {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  width: 360px;
+}
+
+.homepageSearchIcon {
+  position: relative;
+  top: 9px;
+  left: 12px;
+  position: absolute;
+  color: grey;
+}
+
+.homepageNavSearchBar {
+  height: 100%;
+  width: 100%;
+  background-color: #FFFFFFCC;
+  text-indent: 35px;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  outline: none;
+}
+
+.homepageNavSearchBar:focus {
+  background-color: white;
+}
+
 .homepageLinkedinIcon, .homepageGithubIcon, .homepagePortfolioIcon {
+  display: flex;
+  align-items: center;
   font-size: 30px;
 }
 
 .homepageLinkedinIcon:hover {
   color: rgb(0, 99, 220);
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
   cursor: pointer;
 }
 
 .homepageGithubIcon:hover, .homepagePortfolioIcon:hover {
   color: rgb(255, 0, 132);
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
   cursor: pointer;
 }

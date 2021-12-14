@@ -62,6 +62,12 @@
     z-index: 0;
 }
 
+.profileDropdownUser {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .profileDropdownName {
   margin: 20px 0px 0px 20px;
   font-weight: 600;

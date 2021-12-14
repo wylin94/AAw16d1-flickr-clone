@@ -24,8 +24,15 @@ function Navigation({ isLoaded }){
               </div>
 
               <div className={styles.homepageNavRight}>
+
+                <div className={styles.homepageNavSearchBarContainer}>
+                  {/* <label className='navSearchBarIcon'><CgSearch /></label> */}
+                  <div className={styles.homepageSearchIcon}><i class="fas fa-search"></i></div>
+                  <input className={styles.homepageNavSearchBar} placeholder='Albums' type='text'></input>
+                </div>
+
                 <a href='https://wylin94.github.io/' className={styles.homepagePortfolioIcon}>
-                  <i className="fas fa-user-circle"></i>
+                  <i className="fas fa-address-card"></i>
                 </a>
                 <a href='https://www.linkedin.com/in/wylin94/' className={styles.homepageLinkedinIcon}>
                   <i className="fab fa-linkedin"></i>
