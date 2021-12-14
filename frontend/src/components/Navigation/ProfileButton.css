@@ -97,6 +97,8 @@
 
 .profileDropdownLink{
   padding: 5px 20px 5px 20px;
+  font-size: 15px;
+  color: #212124;
 }
 
 .profileDropdownLink:hover {

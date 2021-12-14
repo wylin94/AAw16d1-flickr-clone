@@ -6,7 +6,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Users', [
       {
-        email: 'jacklin@user.io',
+        email: 'jacklin@demouser.io',
         username: 'Jack Lin',
         hashedPassword: bcrypt.hashSync('password'),
         profileImageUrl: 'https://veilr.s3.us-west-1.amazonaws.com/Profile+/ProfilePictureJackLin.jpeg',
@@ -23,7 +23,7 @@ module.exports = {
         email: 'andrekimpham@user.io',
         username: 'Andre Kim Pham',
         hashedPassword: bcrypt.hashSync('password'),
-        profileImageUrl: 'https://veilr.s3.us-west-1.amazonaws.com/Profile+/ProfilePictureAndreKimPham.jpeg',
+        profileImageUrl: 'https://veilr.s3.us-west-1.amazonaws.com/Profile+/ProfilePictureAndreKimPham.jpg',
         coverImageUrl: 'https://veilr.s3.us-west-1.amazonaws.com/Profile+/CoverAndreKimPham.jpeg',
       },
       {
