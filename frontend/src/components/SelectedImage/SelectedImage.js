@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import './SelectedImage.css';
-import { deleteImage } from "../../store/image";
+import { getAllImage, deleteImage } from "../../store/image";
 import { getAlbum } from '../../store/album';
 
 function SelectedImage() {
@@ -12,11 +12,12 @@ function SelectedImage() {
   const history = useHistory();
   const { imageId } = useParams();
   const sessionUser = useSelector(state => state.session.user);
+  const allImages = useSelector(state => state.image);
   const currentImage = useSelector(state => state.image.find(
     ele => ele.id === +imageId
   ))
 
-  if (!currentImage) {
+  if (allImages.length > 0 && !currentImage) {
     history.push('/pageNotFound');
   }
 
@@ -29,6 +30,10 @@ function SelectedImage() {
   }
 
   useEffect(() => {
+    dispatch(getAllImage());
+  }, [dispatch])
+
+  useEffect(() => {
     dispatch(getAlbum());
   }, [dispatch])
 
@@ -36,11 +41,11 @@ function SelectedImage() {
       <div className='selectedImageContainer'>
         <div className='SelectedImageButtonContainer'>
           <NavLink title='Back' className='selectedImageBackIcon' to={`/albums/${currentImage?.albumId}`}>
-            <i class="fas fa-arrow-left"></i>
+            <i className="fas fa-arrow-left"></i>
           </NavLink>
           {sessionUser.id === currentImage?.userId && 
             <button title="Delete Image" className='selectedImageDeleteImage' onClick={handleDeleteClick}>
-              <i class="fas fa-trash-alt"></i>
+              <i className="fas fa-trash-alt"></i>
             </button>}
         </div>
         <div className='selectedImageImageContainer'>

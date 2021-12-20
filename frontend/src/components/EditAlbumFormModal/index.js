@@ -10,7 +10,7 @@ function EditAlbumFormModal() {
   return (
     <>
       <button title="Edit Album" className='editAlbumButton' onClick={() => setShowModal(true)}>
-        <i class="fas fa-edit"></i>
+        <i className="fas fa-edit"></i>
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

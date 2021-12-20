@@ -10,7 +10,7 @@ function CreateAlbumFormModal() {
   return (
     <>
       <button title="Create Album" className='createAlbumButton' onClick={() => setShowModal(true)}>
-        <i class="fas fa-folder-plus"></i>
+        <i className="fas fa-folder-plus"></i>
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

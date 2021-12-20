@@ -41,9 +41,11 @@ function SelectedAlbum() {
     dispatch(getAlbum());
   }, [dispatch])
 
-  useEffect(() => {
-    dispatch(getMyAlbum(currentAlbum[0]?.User.id));
-  }, [dispatch, currentAlbum])
+  // useEffect(() => {
+  //   if (currentAlbum !== undefined) {
+  //     dispatch(getMyAlbum(currentAlbum[0]?.User.id));
+  //   };
+  // }, [dispatch, currentAlbum])
 
   useEffect(() => {
     dispatch(getImage(albumId));
@@ -74,24 +76,24 @@ function SelectedAlbum() {
         <div className='selectedAlbumAlbumNav'>
           <div className='selectedAlbumNavLeft'> 
             <NavLink title='Back' className='selectedAlbumGoBack' to={`/`}>
-              <i class="fas fa-arrow-left"></i>
+              <i className="fas fa-arrow-left"></i>
             </NavLink>
             <h2 className='selectedAlbumTitle'>{currentAlbum?.title}</h2>
           </div>
           <div className='selectedAlbumNavRight'>
             {/* {sessionUser.id === currentAlbum.userId &&
               <NavLink title="Add Image"className='addImage' to={`/createImage/${albumId}`}>
-                <i class="fas fa-camera"></i>
+                <i className="fas fa-camera"></i>
               </NavLink>} */}
             {sessionUser.id === currentAlbum?.userId && <CreateImageFormModal />}
             {/* {sessionUser.id === currentAlbum.userId && 
               <NavLink title="Edit Album" className='editAlbum' to={`/albums/${albumId}/edit`}>
-                <i class="fas fa-edit"></i>
+                <i className="fas fa-edit"></i>
               </NavLink>} */}
             {sessionUser.id === currentAlbum?.userId && <EditAlbumFormModal />}
             {sessionUser.id === currentAlbum?.userId && 
               <button title="Delete Album" className='selectedAlbumDeleteAlbum' onClick={handleDeleteClick}>
-                <i class="fas fa-trash-alt"></i>
+                <i className="fas fa-trash-alt"></i>
               </button>}
           </div>
         </div>

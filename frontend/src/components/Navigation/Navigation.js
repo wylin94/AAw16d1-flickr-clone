@@ -53,10 +53,13 @@ function Navigation({ isLoaded }){
                 </NavLink>
                 <NavLink className='you' to={`/users/${sessionUser.id}/myAlbums`}>You</NavLink>
                 {/* <NavLink className={styles.explore} exact to="/">Explore</NavLink> */}
+                <a href='https://github.com/wylin94' className='homepageGithubIcon'>Github</a>
+                <a href='https://www.linkedin.com/in/wylin94/' className='homepageLinkedinIcon'>LinkedIn</a>
+                <a href='https://wylin94.github.io/' className='homepagePortfolioIcon'>About the Developer</a>
               </div>
               <div className='homepageNavRight' id='testtest'>
                 <div className='homepageNavSearchBarContainer'>
-                  <div className='homepageSearchIcon'><i class="fas fa-search"></i></div>
+                  <div className='homepageSearchIcon'><i className="fas fa-search"></i></div>
                   <input className='homepageNavSearchBar' id={(searchInput.length>0&&showSearch)?'searchInput':''} placeholder='Albums' type='text' onChange={e => {setSearchInput(e.target.value)}}></input>
                   {showSearch && <div className='homepageNavSearchBarResultContainer'>
                     {albums.filter(album => {
@@ -73,7 +76,7 @@ function Navigation({ isLoaded }){
                     })}
                   </div>}
                 </div>
-                <a href='https://wylin94.github.io/' className='homepagePortfolioIcon'>
+                {/* <a href='https://wylin94.github.io/' className='homepagePortfolioIcon'>
                   <i className="fas fa-address-card"></i>
                 </a>
                 <a href='https://www.linkedin.com/in/wylin94/' className='homepageLinkedinIcon'>
@@ -81,7 +84,7 @@ function Navigation({ isLoaded }){
                 </a>
                 <a href='https://github.com/wylin94' className='homepageGithubIcon'>
                   <i className="fab fa-github"></i>
-                </a>
+                </a> */}
                 <ProfileButton user={sessionUser} />
               </div>
 
