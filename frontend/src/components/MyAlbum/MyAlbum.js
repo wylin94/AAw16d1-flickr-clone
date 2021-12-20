@@ -43,7 +43,7 @@ function MyAlbum() {
 
       <div className='MyAlbumNavContainer'>
         <NavLink title='Back' className='MyAlbumBackIcon' to={`/`}>
-          <i class="fas fa-arrow-left"></i>
+          <i className="fas fa-arrow-left"></i>
         </NavLink>
         <CreateAlbumFormModal />
       </div>

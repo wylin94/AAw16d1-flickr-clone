@@ -67,9 +67,9 @@ function ProfileButton({ user }) {
             </div>
             <div className='profileDropdownLinkContainer'>
               <NavLink className='profileDropdownLink' to={`/users/${sessionUser.id}/myAlbums`}>You</NavLink>
-              <a className='profileDropdownLink' href='https://wylin94.github.io/'>About the Developer</a>
-              <a className='profileDropdownLink' href='https://www.linkedin.com/in/wylin94/'>LinkedIn</a>
               <a className='profileDropdownLink' href='https://github.com/wylin94'>Github</a>
+              <a className='profileDropdownLink' href='https://www.linkedin.com/in/wylin94/'>LinkedIn</a>
+              <a className='profileDropdownLink' href='https://wylin94.github.io/'>About the Developer</a>
               <div className='profileDropdownLink' onClick={logout}>Log Out</div>
             </div>
           </ul>

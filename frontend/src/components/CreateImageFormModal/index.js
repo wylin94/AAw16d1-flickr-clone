@@ -10,7 +10,7 @@ function CreateImageFormModal() {
   return (
     <>
       <button title="Create Image" className='addImageButton' onClick={() => setShowModal(true)}>
-        <i class="fas fa-camera"></i>
+        <i className="fas fa-camera"></i>
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

@@ -19,6 +19,14 @@ const toDelete = imageId => ({
   imageId
 });
 
+export const getAllImage = () => async dispatch => {
+  const res = await csrfFetch('/api/images/');
+  if (res.ok) {
+    const images = await res.json();
+    dispatch(load(images));
+  }
+}
+
 export const getImage = (albumId) => async dispatch => {
   const res = await csrfFetch(`/api/images/${albumId}`);
   if (res.ok) {

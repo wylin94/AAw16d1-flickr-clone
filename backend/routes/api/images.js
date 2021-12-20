@@ -5,6 +5,15 @@ const { Image, Album, User } = require('../../db/models')
 const router = express.Router();
 
 //Get all image
+router.get('/', asyncHandler(async (req, res) => {
+  const images = await Image.findAll({
+    include: [{model: User}, { model: Album}],
+    order: [["createdAt", "DESC"]],
+  });
+  return res.json(images)
+}));
+
+//Get album image
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const albumId = parseInt(req.params.id, 10);
   const images = await Image.findAll({
@@ -12,7 +21,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     include: [{model: User}, { model: Album}],
     order: [["createdAt", "DESC"]],
   });
-  const result = res.json(images)
   return res.json(images)
 }));
 
