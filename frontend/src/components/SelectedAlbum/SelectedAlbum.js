@@ -3,15 +3,16 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-import './SelectedAlbum.css';
 import { getAlbum, deleteAlbum, getMyAlbum } from "../../store/album";
 import { getImage } from "../../store/image";
-import CreateImageFormModal from '../CreateImageFormModal';
-import EditAlbumFormModal from '../EditAlbumFormModal';
+import CreateImageForm from './CreateImageForm';
+import EditAlbumForm from './EditAlbumForm';
+import DeleteAlbumModal from './DeleteAlbumModal';
+import './SelectedAlbum.css';
 
 function SelectedAlbum() {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   const {albumId} = useParams();
   const currentAlbum = useSelector(state => state.album.find(ele => ele.id === +albumId));
   const sessionUser = useSelector(state => state.session.user);
@@ -19,13 +20,13 @@ function SelectedAlbum() {
 
   const [currentAlbumImages, setAlbumImages] = useState([]);
 
-  const handleDeleteClick = async (e) => {
-    e.preventDefault();
-    const toRemove = await dispatch(deleteAlbum(albumId));
-    if (toRemove) {
-      history.push(`/users/${currentAlbum.userId}/myAlbums`)
-    }
-  }
+  // const handleDeleteClick = async (e) => {
+  //   e.preventDefault();
+  //   const toRemove = await dispatch(deleteAlbum(albumId));
+  //   if (toRemove) {
+  //     history.push(`/users/${currentAlbum.userId}/myAlbums`)
+  //   }
+  // }
 
   const handleOpenClick = (e) => {
     const albumNav = document.querySelector("#imageNav");
@@ -81,20 +82,13 @@ function SelectedAlbum() {
             <h2 className='selectedAlbumTitle'>{currentAlbum?.title}</h2>
           </div>
           <div className='selectedAlbumNavRight'>
-            {/* {sessionUser.id === currentAlbum.userId &&
-              <NavLink title="Add Image"className='addImage' to={`/createImage/${albumId}`}>
-                <i className="fas fa-camera"></i>
-              </NavLink>} */}
-            {sessionUser.id === currentAlbum?.userId && <CreateImageFormModal />}
-            {/* {sessionUser.id === currentAlbum.userId && 
-              <NavLink title="Edit Album" className='editAlbum' to={`/albums/${albumId}/edit`}>
-                <i className="fas fa-edit"></i>
-              </NavLink>} */}
-            {sessionUser.id === currentAlbum?.userId && <EditAlbumFormModal />}
-            {sessionUser.id === currentAlbum?.userId && 
+            {sessionUser.id === currentAlbum?.userId && <CreateImageForm />}
+            {sessionUser.id === currentAlbum?.userId && <EditAlbumForm />}
+            {sessionUser.id === currentAlbum?.userId && <DeleteAlbumModal />}
+            {/* {sessionUser.id === currentAlbum?.userId && 
               <button title="Delete Album" className='selectedAlbumDeleteAlbum' onClick={handleDeleteClick}>
                 <i className="fas fa-trash-alt"></i>
-              </button>}
+              </button>} */}
           </div>
         </div>
       </div>
@@ -102,11 +96,11 @@ function SelectedAlbum() {
       <div id='scrollToImageContainer' className='selectedAlbumImageContainer'>
         {currentAlbumImages.length > 0 && currentAlbumImages.map(image => {
           return (
-              <NavLink className='selectedAlbumaTag' key={image.id} to={`/images/${image.id}`}>
-                <div className='selectedAlbumImageWrapper'>
-                  <img className='selectedAlbumImage' src={image.imageUrl} alt={image.description}></img>
-                </div>
-              </NavLink>
+            <NavLink className='selectedAlbumaTag' key={image.id} to={`/images/${image.id}`}>
+              <div className='selectedAlbumImageWrapper'>
+                <img className='selectedAlbumImage' src={image.imageUrl} alt={image.description}></img>
+              </div>
+            </NavLink>
           )
         })}
       </div>
