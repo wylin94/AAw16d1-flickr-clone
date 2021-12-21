@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router';
 
-import './MyAlbum.css';
 import { getMyAlbum } from '../../store/album';
-import CreateAlbumFormModal from '../CreateAlbumFormModal';
+import CreateAlbumForm from './CreateAlbumForm';
+import './MyAlbum.css';
 
 function MyAlbum() {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ function MyAlbum() {
   return (
     <div className='MyAlbumContainer'>
 
-      <div className='MyAlbumProfileContainer' style={{backgroundImage: `url(${currentAlbum[0]?.User.coverImageUrl || currentUser.user.coverImageUrl})`}}>
+      <div className='MyAlbumProfileContainer' style={{backgroundImage: `url(${currentAlbum[0]?.User?.coverImageUrl || currentUser.user.coverImageUrl})`}}>
       {/* <div className='profileContainer' style={{backgroundImage: `url(${currentUser.user.coverImageUrl})`}}> */}
         <div className='MyAlbumProfileWrapper'>
           <img className='MyAlbumProfilePicture' src={currentAlbum[0]?.User.profileImageUrl || currentUser.user.profileImageUrl} alt="profileImage"></img>
@@ -45,7 +45,7 @@ function MyAlbum() {
         <NavLink title='Back' className='MyAlbumBackIcon' to={`/`}>
           <i className="fas fa-arrow-left"></i>
         </NavLink>
-        <CreateAlbumFormModal />
+        <CreateAlbumForm />
       </div>
 
       <div className='myAlbumAlbumContainer'>
