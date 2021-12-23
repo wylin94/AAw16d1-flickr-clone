@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
 
-import './SelectedImage.css';
-import { getAllImage, deleteImage } from "../../store/image";
+import { getAllImage } from "../../store/image";
 import { getAlbum } from '../../store/album';
+import DeleteImageModal from './DeleteImageModal';
+import './SelectedImage.css';
 
 function SelectedImage() {
   const dispatch = useDispatch();
@@ -19,14 +20,6 @@ function SelectedImage() {
 
   if (allImages.length > 0 && !currentImage) {
     history.push('/pageNotFound');
-  }
-
-  const handleDeleteClick = async (e) => {
-    e.preventDefault();
-    const toRemove = await dispatch(deleteImage(imageId));
-    if (toRemove) {
-      history.push(`/albums/${currentImage.albumId}`)
-    }
   }
 
   useEffect(() => {
@@ -43,10 +36,7 @@ function SelectedImage() {
           <NavLink title='Back' className='selectedImageBackIcon' to={`/albums/${currentImage?.albumId}`}>
             <i className="fas fa-arrow-left"></i>
           </NavLink>
-          {sessionUser.id === currentImage?.userId && 
-            <button title="Delete Image" className='selectedImageDeleteImage' onClick={handleDeleteClick}>
-              <i className="fas fa-trash-alt"></i>
-            </button>}
+          {sessionUser.id === currentImage?.userId && <DeleteImageModal />}
         </div>
         <div className='selectedImageImageContainer'>
           <img className='selectedImageImage' src={currentImage?.imageUrl} alt={currentImage?.description}></img>
